@@ -901,6 +901,418 @@
             font-size: 0.875rem;
         }
 
+        /* Image Upload Styles */
+        .image-upload-container {
+            margin-top: 0.5rem;
+        }
+
+        .image-uploads {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .image-upload-slot {
+            aspect-ratio: 1;
+            border: 2px dashed var(--border);
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: var(--light-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-upload-slot:hover {
+            border-color: var(--primary);
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .image-upload-slot.has-image {
+            border-style: solid;
+            border-color: var(--primary);
+        }
+
+        .image-upload-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .image-upload-slot .remove-image {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: var(--danger);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            z-index: 2;
+            display: none;
+        }
+
+        .image-upload-slot.has-image .remove-image {
+            display: block;
+        }
+
+        .image-upload-slot.has-image i,
+        .image-upload-slot.has-image span {
+            display: none;
+        }
+
+        /* Product Interactions */
+        .product-interactions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .interaction-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .interaction-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: var(--gray);
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .interaction-btn:hover {
+            color: var(--primary);
+        }
+
+        .interaction-btn.active {
+            color: var(--danger);
+        }
+
+        /* Comments Section */
+        .comments-section {
+            margin-top: 2rem;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .comments-header {
+            padding: 1rem 1.5rem;
+            background: var(--light-gray);
+            border-bottom: 1px solid var(--border);
+            font-weight: 600;
+        }
+
+        .comment-form {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comment-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            resize: vertical;
+            min-height: 80px;
+            margin-bottom: 1rem;
+        }
+
+        .comment-item {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comment-item:last-child {
+            border-bottom: none;
+        }
+
+        .comment-author {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .comment-date {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .comment-text {
+            line-height: 1.5;
+        }
+
+        /* Seller Profile */
+        .seller-profile {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            margin-bottom: 2rem;
+        }
+
+        .seller-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .seller-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .seller-details h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .seller-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-seller {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Chat Modal */
+        .chat-modal {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 350px;
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            display: none;
+            z-index: 2000;
+            border: 1px solid var(--border);
+        }
+
+        .chat-header {
+            padding: 1rem;
+            background: var(--primary);
+            color: white;
+            border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            padding: 1rem;
+            background: var(--light-gray);
+        }
+
+        .chat-message {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            border-radius: var(--radius);
+            max-width: 80%;
+        }
+
+        .chat-message.sent {
+            background: var(--primary);
+            color: white;
+            margin-left: auto;
+        }
+
+        .chat-message.received {
+            background: white;
+            color: var(--dark);
+        }
+
+        .chat-input-container {
+            padding: 1rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            outline: none;
+        }
+
+        .chat-send {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius);
+            cursor: pointer;
+        }
+
+        /* Enhanced Product Card */
+        .product-card-enhanced {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-gallery {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .product-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 2;
+        }
+
+        .gallery-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .gallery-dot.active {
+            background: white;
+        }
+
+        /* Edit Product Modal */
+        .edit-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2500;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .edit-modal-content {
+            background: white;
+            max-width: 600px;
+            max-height: 90vh;
+            border-radius: var(--radius-lg);
+            overflow-y: auto;
+            width: 100%;
+        }
+
+        /* Reactions */
+        .reactions-container {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            margin-top: 0.5rem;
+        }
+
+        .reaction-btn {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 0.25rem 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+        }
+
+        .reaction-btn:hover {
+            background: var(--light-gray);
+        }
+
+        .reaction-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Additional Rating Styles */
+        .rating-input {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .star {
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--border);
+            transition: color 0.3s ease;
+        }
+
+        .star:hover,
+        .star.selected {
+            color: var(--warning);
+        }
+
+        /* Enhanced Mobile Styles */
+        .mobile-optimized {
+            padding: 0.5rem;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-content {
@@ -955,6 +1367,38 @@
             .modal-content {
                 margin: 1rem auto;
             }
+
+            .image-uploads {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .seller-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-seller {
+                justify-content: center;
+            }
+
+            .chat-modal {
+                width: calc(100vw - 2rem);
+                right: 1rem;
+                bottom: 1rem;
+            }
+
+            .product-interactions {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .interaction-buttons {
+                justify-content: center;
+            }
+
+            .reactions-container {
+                justify-content: center;
+            }
         }
 
         @media (max-width: 480px) {
@@ -972,6 +1416,71 @@
 
             .hero h1 {
                 font-size: 1.75rem;
+            }
+
+            .image-uploads {
+                grid-template-columns: 1fr;
+            }
+
+            .chat-modal {
+                width: 100vw;
+                height: 100vh;
+                right: 0;
+                bottom: 0;
+                border-radius: 0;
+            }
+
+            .modal-content {
+                margin: 0;
+                border-radius: 0;
+                max-height: 100vh;
+            }
+
+            .product-gallery {
+                height: 200px;
+            }
+
+            .quick-view-content {
+                margin: 0;
+                border-radius: 0;
+                max-height: 100vh;
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --white: #1f2937;
+                --light-gray: #374151;
+                --dark: #f9fafb;
+                --gray: #d1d5db;
+                --border: #4b5563;
+            }
+        }
+
+        /* Animation utilities */
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .scale-in {
+            animation: scaleIn 0.2s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.95); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Print styles */
+        @media print {
+            .header, .nav, .modal, .notification {
+                display: none !important;
             }
         }
     </style>
@@ -1027,11 +1536,17 @@
                         <a href="#" class="dropdown-item" onclick="showSection('sell')">
                             <i class="fas fa-plus"></i> Vendre un produit
                         </a>
+                        <a href="#" class="dropdown-item" onclick="showSection('myProducts')">
+                            <i class="fas fa-box"></i> Mes produits
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="showSection('sellerDashboard')">
+                            <i class="fas fa-chart-line"></i> Tableau de bord
+                        </a>
                         <a href="#" class="dropdown-item">
                             <i class="fas fa-heart"></i> Mes favoris
                         </a>
                         <a href="#" class="dropdown-item">
-                            <i class="fas fa-box"></i> Mes commandes
+                            <i class="fas fa-shopping-bag"></i> Mes commandes
                         </a>
                         <a href="#" class="dropdown-item">
                             <i class="fas fa-user-cog"></i> Paramètres
@@ -1220,52 +1735,179 @@
 
         <!-- Sell Section -->
         <section id="sell" class="section">
-            <div class="form-section">
-                <h1 style="text-align: center; margin-bottom: 2rem;">💰 Vendre un produit</h1>
+            <div class="form-section" style="max-width: 800px;">
+                <h1 style="text-align: center; margin-bottom: 2rem;">💰 Publier un produit</h1>
                 <form id="sellForm">
                     <div class="form-group">
                         <label for="productTitle">
-                            <i class="fas fa-tag"></i> Titre du produit
+                            <i class="fas fa-tag"></i> Titre du produit *
                         </label>
-                        <input type="text" class="form-control" id="productTitle" placeholder="Ex: Pack 100 modèles Canva..." required>
+                        <input type="text" class="form-control" id="productTitle" placeholder="Ex: Pack 100 modèles Canva Pro" required>
                     </div>
-                    <div class="form-group">
-                        <label for="productCategory">
-                            <i class="fas fa-folder"></i> Catégorie
-                        </label>
-                        <select class="form-control" id="productCategory" required>
-                            <option value="">Sélectionner une catégorie</option>
-                            <option value="canva">🎨 Modèles Canva</option>
-                            <option value="ebook">📚 E-books</option>
-                            <option value="formation">🎓 Formations vidéo</option>
-                            <option value="coaching">👥 Coaching</option>
-                            <option value="webdesign">💻 Web Design</option>
-                            <option value="other">📦 Autre</option>
-                        </select>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="productCategory">
+                                <i class="fas fa-folder"></i> Catégorie *
+                            </label>
+                            <select class="form-control" id="productCategory" required>
+                                <option value="">Sélectionner une catégorie</option>
+                                <option value="digital">📱 Produits numériques</option>
+                                <option value="physical">📦 Produits physiques</option>
+                                <option value="canva">🎨 Modèles Canva</option>
+                                <option value="ebook">📚 E-books</option>
+                                <option value="formation">🎓 Formations</option>
+                                <option value="coaching">👥 Coaching</option>
+                                <option value="webdesign">💻 Web Design</option>
+                                <option value="services">🛠️ Services</option>
+                                <option value="artisanat">🎨 Artisanat</option>
+                                <option value="vetements">👕 Vêtements</option>
+                                <option value="electronique">⚡ Électronique</option>
+                                <option value="maison">🏠 Maison & Jardin</option>
+                                <option value="beaute">💄 Beauté & Santé</option>
+                                <option value="sport">⚽ Sport & Loisirs</option>
+                                <option value="auto">🚗 Auto & Moto</option>
+                                <option value="other">📋 Autre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="productPrice">
+                                <i class="fas fa-dollar-sign"></i> Prix (MGA) *
+                            </label>
+                            <input type="number" class="form-control" id="productPrice" min="0" placeholder="Ex: 25000" required>
+                        </div>
                     </div>
+
                     <div class="form-group">
                         <label for="productDescription">
-                            <i class="fas fa-align-left"></i> Description
+                            <i class="fas fa-align-left"></i> Description détaillée *
                         </label>
-                        <textarea class="form-control" id="productDescription" placeholder="Décrivez votre produit en détail..." required></textarea>
+                        <textarea class="form-control" id="productDescription" placeholder="Décrivez votre produit en détail (caractéristiques, avantages, contenu inclus...)" required style="min-height: 120px;"></textarea>
                     </div>
+
                     <div class="form-group">
-                        <label for="productPrice">
-                            <i class="fas fa-dollar-sign"></i> Prix (MGA)
+                        <label>
+                            <i class="fas fa-images"></i> Photos du produit (Max 4 images)
                         </label>
-                        <input type="number" class="form-control" id="productPrice" min="0" placeholder="Ex: 25000" required>
+                        <div class="image-upload-container">
+                            <div class="image-uploads" id="imageUploads">
+                                <div class="image-upload-slot" onclick="triggerImageUpload(0)">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Ajouter une photo</span>
+                                    <input type="file" id="productImage0" accept="image/*" style="display: none;" onchange="handleImageUpload(0)">
+                                </div>
+                                <div class="image-upload-slot" onclick="triggerImageUpload(1)">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Photo 2</span>
+                                    <input type="file" id="productImage1" accept="image/*" style="display: none;" onchange="handleImageUpload(1)">
+                                </div>
+                                <div class="image-upload-slot" onclick="triggerImageUpload(2)">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Photo 3</span>
+                                    <input type="file" id="productImage2" accept="image/*" style="display: none;" onchange="handleImageUpload(2)">
+                                </div>
+                                <div class="image-upload-slot" onclick="triggerImageUpload(3)">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Photo 4</span>
+                                    <input type="file" id="productImage3" accept="image/*" style="display: none;" onchange="handleImageUpload(3)">
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div class="form-group">
+                            <label for="productType">
+                                <i class="fas fa-cube"></i> Type de produit
+                            </label>
+                            <select class="form-control" id="productType">
+                                <option value="new">🆕 Nouveau</option>
+                                <option value="used">♻️ Occasion</option>
+                                <option value="refurbished">🔧 Reconditionné</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="productLocation">
+                                <i class="fas fa-map-marker-alt"></i> Localisation
+                            </label>
+                            <select class="form-control" id="productLocation">
+                                <option value="antananarivo">📍 Antananarivo</option>
+                                <option value="toamasina">📍 Toamasina</option>
+                                <option value="antsirabe">📍 Antsirabe</option>
+                                <option value="fianarantsoa">📍 Fianarantsoa</option>
+                                <option value="mahajanga">📍 Mahajanga</option>
+                                <option value="toliara">📍 Toliara</option>
+                                <option value="antsiranana">📍 Antsiranana</option>
+                                <option value="online">🌐 En ligne uniquement</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="form-group">
-                        <label for="productImage">
-                            <i class="fas fa-image"></i> Image du produit
+                        <label>
+                            <input type="checkbox" id="acceptTerms" required style="margin-right: 0.5rem;">
+                            J'accepte les <a href="#" style="color: var(--primary);">conditions de vente</a> et je certifie être le propriétaire légal de ce produit
                         </label>
-                        <input type="file" class="form-control" id="productImage" accept="image/*">
                     </div>
+
                     <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
-                        <i class="fas fa-plus"></i>
-                        Publier le produit
+                        <i class="fas fa-rocket"></i>
+                        Publier mon produit
                     </button>
                 </form>
+            </div>
+        </section>
+
+        <!-- My Products Section -->
+        <section id="myProducts" class="section">
+            <div style="max-width: 1000px; margin: 0 auto;">
+                <h1 style="text-align: center; margin-bottom: 2rem;">📦 Mes produits</h1>
+                
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+                    <button class="btn btn-primary" onclick="showSection('sell')">
+                        <i class="fas fa-plus"></i> Ajouter un produit
+                    </button>
+                    <button class="btn" onclick="showSection('sellerDashboard')">
+                        <i class="fas fa-chart-line"></i> Tableau de bord
+                    </button>
+                </div>
+
+                <div class="products-grid" id="myProductsGrid">
+                    <!-- User's products will be loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Seller Dashboard -->
+        <section id="sellerDashboard" class="section">
+            <div style="max-width: 1200px; margin: 0 auto;">
+                <h1 style="text-align: center; margin-bottom: 2rem;">📊 Tableau de bord vendeur</h1>
+                
+                <div class="stats" style="margin-bottom: 3rem;">
+                    <div class="stat-item">
+                        <div class="stat-number" id="sellerProductsCount">0</div>
+                        <div class="stat-label">Produits publiés</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="sellerViewsCount">0</div>
+                        <div class="stat-label">Vues totales</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="sellerLikesCount">0</div>
+                        <div class="stat-label">J'aime reçus</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="sellerMessagesCount">0</div>
+                        <div class="stat-label">Messages reçus</div>
+                    </div>
+                </div>
+
+                <div style="background: white; padding: 2rem; border-radius: var(--radius-lg); box-shadow: var(--shadow);">
+                    <h3 style="margin-bottom: 1.5rem;">💬 Messages récents</h3>
+                    <div id="recentMessages">
+                        <p style="color: var(--gray); text-align: center; padding: 2rem;">Aucun message pour le moment</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -1442,11 +2084,150 @@
     <div id="notification" class="notification">
         <div id="notificationMessage"></div>
     </div>
+
+    <!-- Chat Modal -->
+    <div id="chatModal" class="chat-modal">
+        <div class="chat-header">
+            <div>
+                <strong id="chatSellerName">Vendeur</strong>
+                <div style="font-size: 0.8rem; opacity: 0.8;">En ligne</div>
+            </div>
+            <button onclick="closeChatModal()" style="background: none; border: none; color: white; cursor: pointer;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="chat-message received">
+                <div>Bonjour ! Je suis disponible pour répondre à vos questions sur ce produit.</div>
+                <div style="font-size: 0.7rem; opacity: 0.7; margin-top: 0.5rem;">Il y a 2 minutes</div>
+            </div>
+        </div>
+        <div class="chat-input-container">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Tapez votre message...">
+            <button class="chat-send" onclick="sendChatMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Comments Modal -->
+    <div id="commentsModal" class="modal">
+        <div class="modal-content" style="max-width: 700px;">
+            <div class="modal-header">
+                <h3 class="modal-title">💬 Commentaires et avis</h3>
+                <button class="modal-close" onclick="closeCommentsModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="comment-form">
+                    <textarea class="comment-input" id="commentInput" placeholder="Partagez votre avis sur ce produit..."></textarea>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div class="reactions-container">
+                            <span>Votre note:</span>
+                            <div class="rating-input" id="ratingInput">
+                                <span class="star" data-rating="1">☆</span>
+                                <span class="star" data-rating="2">☆</span>
+                                <span class="star" data-rating="3">☆</span>
+                                <span class="star" data-rating="4">☆</span>
+                                <span class="star" data-rating="5">☆</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" onclick="submitComment()">
+                            <i class="fas fa-comment"></i> Publier
+                        </button>
+                    </div>
+                </div>
+                <div id="commentsList">
+                    <!-- Comments will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Product Modal -->
+    <div id="editProductModal" class="edit-modal">
+        <div class="edit-modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">✏️ Modifier le produit</h3>
+                <button class="modal-close" onclick="closeEditProductModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <form id="editProductForm">
+                    <input type="hidden" id="editProductId">
+                    <div class="form-group">
+                        <label for="editProductTitle">Titre</label>
+                        <input type="text" class="form-control" id="editProductTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editProductPrice">Prix (MGA)</label>
+                        <input type="number" class="form-control" id="editProductPrice" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editProductDescription">Description</label>
+                        <textarea class="form-control" id="editProductDescription" required></textarea>
+                    </div>
+                    <div style="display: flex; gap: 1rem; justify-content: flex-end;">
+                        <button type="button" class="btn" onclick="closeEditProductModal()">Annuler</button>
+                        <button type="submit" class="btn btn-primary">Sauvegarder</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Seller Profile Modal -->
+    <div id="sellerProfileModal" class="modal">
+        <div class="modal-content" style="max-width: 800px;">
+            <div class="modal-header">
+                <h3 class="modal-title">👤 Profil vendeur</h3>
+                <button class="modal-close" onclick="closeSellerProfileModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="seller-profile">
+                    <div class="seller-info">
+                        <div class="seller-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="seller-details">
+                            <h3 id="sellerProfileName">Nom du vendeur</h3>
+                            <div class="seller-rating">
+                                <div id="sellerStars">★★★★★</div>
+                                <span id="sellerRatingText">(4.8/5)</span>
+                            </div>
+                            <p id="sellerMemberSince">Membre depuis janvier 2024</p>
+                        </div>
+                    </div>
+                    <div class="contact-seller">
+                        <button class="contact-btn" onclick="startChat()">
+                            <i class="fas fa-comment"></i> Messagerie
+                        </button>
+                        <button class="contact-btn" onclick="sendEmail()">
+                            <i class="fas fa-envelope"></i> Email
+                        </button>
+                        <button class="contact-btn" onclick="makeCall()">
+                            <i class="fas fa-phone"></i> Appeler
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1rem;">📦 Autres produits de ce vendeur</h4>
+                    <div class="products-grid" id="sellerOtherProducts">
+                        <!-- Seller's other products will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 	
 	<script>
         // Global state
         let currentUser = null;
         let cart = [];
+        let uploadedImages = [];
+        let currentProductImages = {};
+        let userProducts = [];
+        let comments = {};
+        let reactions = {};
+        let messages = {};
         let products = [
             {
                 id: 1,
@@ -1539,12 +2320,53 @@
                 description: "Collection de 50 logos modernes + guidelines d'identité visuelle. Formats vectoriels inclus, parfait pour startups et PME.",
                 price: 35000,
                 image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400",
+                images: ["https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400"],
                 seller: "Creative Studio Mada",
                 rating: 4.7,
                 likes: 123,
-                isTopSeller: true
+                reactions: { like: 123, love: 45, wow: 12 },
+                isTopSeller: true,
+                views: 890,
+                type: "new",
+                location: "antananarivo"
             }
         ];
+
+        // Initialize comments and reactions for existing products
+        products.forEach(product => {
+            if (!product.images) {
+                product.images = [product.image];
+            }
+            if (!product.reactions) {
+                product.reactions = { like: product.likes || 0, love: 0, wow: 0 };
+            }
+            if (!product.views) {
+                product.views = Math.floor(Math.random() * 1000) + 100;
+            }
+            if (!product.type) {
+                product.type = "new";
+            }
+            if (!product.location) {
+                product.location = "antananarivo";
+            }
+            
+            comments[product.id] = [
+                {
+                    id: 1,
+                    author: "Marie Rakoto",
+                    text: "Excellent produit ! Je recommande vivement.",
+                    rating: 5,
+                    date: new Date(Date.now() - 86400000).toISOString()
+                },
+                {
+                    id: 2,
+                    author: "Jean Andry",
+                    text: "Très satisfait de mon achat, service client au top.",
+                    rating: 4,
+                    date: new Date(Date.now() - 172800000).toISOString()
+                }
+            ];
+        });
 
         // Authentication functions
         function showAuthModal(type) {
@@ -1743,11 +2565,22 @@
 
         function getCategoryName(category) {
             const categories = {
+                'digital': '📱 Produits numériques',
+                'physical': '📦 Produits physiques',
                 'canva': '🎨 Modèles Canva',
                 'ebook': '📚 E-books',
                 'formation': '🎓 Formations',
                 'coaching': '👥 Coaching',
-                'webdesign': '💻 Web Design'
+                'webdesign': '💻 Web Design',
+                'services': '🛠️ Services',
+                'artisanat': '🎨 Artisanat',
+                'vetements': '👕 Vêtements',
+                'electronique': '⚡ Électronique',
+                'maison': '🏠 Maison & Jardin',
+                'beaute': '💄 Beauté & Santé',
+                'sport': '⚽ Sport & Loisirs',
+                'auto': '🚗 Auto & Moto',
+                'other': '📋 Autre'
             };
             return categories[category] || category;
         }
@@ -2014,11 +2847,546 @@
             }
         });
 
+        // Image upload functions
+        function triggerImageUpload(index) {
+            document.getElementById(`productImage${index}`).click();
+        }
+
+        function handleImageUpload(index) {
+            const input = document.getElementById(`productImage${index}`);
+            const file = input.files[0];
+            
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const slot = input.parentElement;
+                    slot.classList.add('has-image');
+                    slot.innerHTML = `
+                        <img src="${e.target.result}" alt="Product image">
+                        <button class="remove-image" onclick="removeImage(${index})">×</button>
+                        <input type="file" id="productImage${index}" accept="image/*" style="display: none;" onchange="handleImageUpload(${index})">
+                    `;
+                    uploadedImages[index] = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function removeImage(index) {
+            const slot = document.querySelector(`#productImage${index}`).parentElement;
+            slot.classList.remove('has-image');
+            slot.innerHTML = `
+                <i class="fas fa-plus"></i>
+                <span>Photo ${index + 1}</span>
+                <input type="file" id="productImage${index}" accept="image/*" style="display: none;" onchange="handleImageUpload(${index})">
+            `;
+            uploadedImages[index] = null;
+            slot.onclick = () => triggerImageUpload(index);
+        }
+
+        // Enhanced product functions
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'product-card product-card-enhanced';
+            card.onclick = () => showQuickView(product.id);
+
+            const badgeHtml = product.isTopSeller ? '<div class="product-badge top-seller">🔥 Top vente</div>' : '';
+            const isUserProduct = currentUser && product.seller === currentUser.name;
+
+            // Create image gallery
+            let galleryHtml = '';
+            if (product.images && product.images.length > 1) {
+                galleryHtml = `
+                    <div class="gallery-nav">
+                        ${product.images.map((_, i) => `<div class="gallery-dot ${i === 0 ? 'active' : ''}" onclick="changeProductImage(${product.id}, ${i}); event.stopPropagation();"></div>`).join('')}
+                    </div>
+                `;
+            }
+
+            card.innerHTML = `
+                <div class="product-gallery">
+                    <img src="${product.images ? product.images[0] : product.image}" alt="${product.title}" id="productImg${product.id}">
+                    ${badgeHtml}
+                    ${galleryHtml}
+                </div>
+                <div class="product-info">
+                    <div class="product-category">${getCategoryName(product.category)}</div>
+                    <h3 class="product-title">${product.title}</h3>
+                    <div class="product-seller" onclick="showSellerProfile('${product.seller}'); event.stopPropagation();" style="cursor: pointer; color: var(--primary);">
+                        👤 ${product.seller}
+                    </div>
+                    <div class="product-rating">
+                        <div class="stars">${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5-Math.floor(product.rating))}</div>
+                        <span class="rating-count">(${product.reactions ? Object.values(product.reactions).reduce((a,b) => a+b, 0) : product.likes})</span>
+                    </div>
+                    <div class="product-price">${product.price.toLocaleString()} MGA</div>
+                    ${isUserProduct ? `
+                        <div class="product-actions">
+                            <button class="btn btn-small" onclick="editProduct(${product.id}); event.stopPropagation();">
+                                <i class="fas fa-edit"></i> Modifier
+                            </button>
+                            <button class="btn btn-small" style="background: var(--danger); color: white;" onclick="deleteProduct(${product.id}); event.stopPropagation();">
+                                <i class="fas fa-trash"></i> Supprimer
+                            </button>
+                        </div>
+                    ` : `
+                        <div class="product-actions">
+                            <button class="btn btn-primary btn-small" onclick="addToCart(${product.id}); event.stopPropagation();">
+                                <i class="fas fa-cart-plus"></i> Ajouter
+                            </button>
+                            <button class="btn btn-small" onclick="showQuickView(${product.id}); event.stopPropagation();">
+                                <i class="fas fa-eye"></i> Voir
+                            </button>
+                        </div>
+                    `}
+                </div>
+                <div class="product-interactions">
+                    <div class="interaction-buttons">
+                        <button class="interaction-btn" onclick="toggleReaction(${product.id}, 'like'); event.stopPropagation();">
+                            <i class="fas fa-heart"></i> ${product.reactions ? product.reactions.like : product.likes}
+                        </button>
+                        <button class="interaction-btn" onclick="showComments(${product.id}); event.stopPropagation();">
+                            <i class="fas fa-comment"></i> ${comments[product.id] ? comments[product.id].length : 0}
+                        </button>
+                        <button class="interaction-btn" onclick="contactSeller(${product.id}); event.stopPropagation();">
+                            <i class="fas fa-message"></i> Contact
+                        </button>
+                    </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="reaction-btn" onclick="toggleReaction(${product.id}, 'like'); event.stopPropagation();">
+                            ❤️ ${product.reactions ? product.reactions.like : 0}
+                        </button>
+                        <button class="reaction-btn" onclick="toggleReaction(${product.id}, 'love'); event.stopPropagation();">
+                            😍 ${product.reactions ? product.reactions.love : 0}
+                        </button>
+                        <button class="reaction-btn" onclick="toggleReaction(${product.id}, 'wow'); event.stopPropagation();">
+                            😮 ${product.reactions ? product.reactions.wow : 0}
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        function changeProductImage(productId, imageIndex) {
+            const product = products.find(p => p.id === productId);
+            if (product && product.images) {
+                const img = document.getElementById(`productImg${productId}`);
+                if (img) {
+                    img.src = product.images[imageIndex];
+                }
+                
+                // Update gallery dots
+                const dots = document.querySelectorAll(`#productImg${productId}`).forEach((_, i) => {
+                    const dot = document.querySelector(`.gallery-dot:nth-child(${i + 1})`);
+                    if (dot) {
+                        dot.classList.toggle('active', i === imageIndex);
+                    }
+                });
+            }
+        }
+
+        // Reactions and comments
+        function toggleReaction(productId, reactionType) {
+            if (!currentUser) {
+                showNotification('🔒 Veuillez vous connecter pour réagir', 'error');
+                showAuthModal('login');
+                return;
+            }
+
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                if (!product.reactions) {
+                    product.reactions = { like: 0, love: 0, wow: 0 };
+                }
+                product.reactions[reactionType]++;
+                
+                showNotification(`${getReactionEmoji(reactionType)} Réaction ajoutée !`, 'success');
+                
+                // Refresh product display
+                if (document.getElementById('products').classList.contains('active')) {
+                    renderProducts(products, document.getElementById('productsGrid'));
+                }
+                if (document.getElementById('home').classList.contains('active')) {
+                    loadTopProducts();
+                }
+            }
+        }
+
+        function getReactionEmoji(reactionType) {
+            const emojis = { like: '❤️', love: '😍', wow: '😮' };
+            return emojis[reactionType] || '👍';
+        }
+
+        function showComments(productId) {
+            if (!currentUser) {
+                showNotification('🔒 Veuillez vous connecter pour voir les commentaires', 'error');
+                showAuthModal('login');
+                return;
+            }
+
+            const modal = document.getElementById('commentsModal');
+            const commentsList = document.getElementById('commentsList');
+            
+            // Load comments for this product
+            const productComments = comments[productId] || [];
+            
+            commentsList.innerHTML = '';
+            if (productComments.length === 0) {
+                commentsList.innerHTML = '<p style="text-align: center; color: var(--gray); padding: 2rem;">Aucun commentaire pour le moment. Soyez le premier à donner votre avis !</p>';
+            } else {
+                productComments.forEach(comment => {
+                    const commentEl = document.createElement('div');
+                    commentEl.className = 'comment-item';
+                    commentEl.innerHTML = `
+                        <div class="comment-author">${comment.author}</div>
+                        <div class="comment-date">${new Date(comment.date).toLocaleDateString('fr-FR')}</div>
+                        <div class="comment-text">${comment.text}</div>
+                        <div style="margin-top: 0.5rem;">
+                            <div class="stars">${'★'.repeat(comment.rating)}${'☆'.repeat(5-comment.rating)}</div>
+                        </div>
+                    `;
+                    commentsList.appendChild(commentEl);
+                });
+            }
+
+            // Set current product ID for comment submission
+            document.getElementById('commentInput').dataset.productId = productId;
+            modal.style.display = 'block';
+        }
+
+        function submitComment() {
+            const input = document.getElementById('commentInput');
+            const productId = parseInt(input.dataset.productId);
+            const text = input.value.trim();
+            
+            if (!text) {
+                showNotification('⚠️ Veuillez saisir un commentaire', 'error');
+                return;
+            }
+
+            // Get rating from stars
+            const selectedStars = document.querySelectorAll('#ratingInput .star.selected');
+            const rating = selectedStars.length || 5;
+
+            const newComment = {
+                id: Date.now(),
+                author: currentUser.name,
+                text: text,
+                rating: rating,
+                date: new Date().toISOString()
+            };
+
+            if (!comments[productId]) {
+                comments[productId] = [];
+            }
+            comments[productId].unshift(newComment);
+
+            showNotification('💬 Commentaire publié avec succès !', 'success');
+            input.value = '';
+            
+            // Refresh comments display
+            showComments(productId);
+        }
+
+        function closeCommentsModal() {
+            document.getElementById('commentsModal').style.display = 'none';
+        }
+
+        // Chat functions
+        function contactSeller(productId) {
+            if (!currentUser) {
+                showNotification('🔒 Veuillez vous connecter pour contacter le vendeur', 'error');
+                showAuthModal('login');
+                return;
+            }
+
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                document.getElementById('chatSellerName').textContent = product.seller;
+                document.getElementById('chatModal').style.display = 'block';
+            }
+        }
+
+        function startChat() {
+            document.getElementById('chatModal').style.display = 'block';
+        }
+
+        function closeChatModal() {
+            document.getElementById('chatModal').style.display = 'none';
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+
+            const messagesContainer = document.getElementById('chatMessages');
+            
+            // Add user message
+            const messageEl = document.createElement('div');
+            messageEl.className = 'chat-message sent';
+            messageEl.innerHTML = `
+                <div>${message}</div>
+                <div style="font-size: 0.7rem; opacity: 0.7; margin-top: 0.5rem;">À l'instant</div>
+            `;
+            messagesContainer.appendChild(messageEl);
+            
+            input.value = '';
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            // Simulate seller response
+            setTimeout(() => {
+                const responseEl = document.createElement('div');
+                responseEl.className = 'chat-message received';
+                responseEl.innerHTML = `
+                    <div>Merci pour votre message ! Je vous réponds dans les plus brefs délais.</div>
+                    <div style="font-size: 0.7rem; opacity: 0.7; margin-top: 0.5rem;">À l'instant</div>
+                `;
+                messagesContainer.appendChild(responseEl);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 2000);
+        }
+
+        // Seller profile functions
+        function showSellerProfile(sellerName) {
+            const modal = document.getElementById('sellerProfileModal');
+            document.getElementById('sellerProfileName').textContent = sellerName;
+            
+            // Load seller's other products
+            const sellerProducts = products.filter(p => p.seller === sellerName);
+            const otherProductsGrid = document.getElementById('sellerOtherProducts');
+            renderProducts(sellerProducts.slice(0, 3), otherProductsGrid);
+            
+            modal.style.display = 'block';
+        }
+
+        function closeSellerProfileModal() {
+            document.getElementById('sellerProfileModal').style.display = 'none';
+        }
+
+        function sendEmail() {
+            showNotification('📧 Ouverture de votre client mail...', 'success');
+            // Simulate email opening
+        }
+
+        function makeCall() {
+            showNotification('📞 Numéro copié dans le presse-papier', 'success');
+        }
+
+        // Product management for sellers
+        function loadMyProducts() {
+            if (!currentUser) return;
+            
+            const myProducts = products.filter(p => p.seller === currentUser.name);
+            const grid = document.getElementById('myProductsGrid');
+            renderProducts(myProducts, grid);
+            
+            // Update seller dashboard stats
+            updateSellerStats(myProducts);
+        }
+
+        function updateSellerStats(myProducts) {
+            document.getElementById('sellerProductsCount').textContent = myProducts.length;
+            document.getElementById('sellerViewsCount').textContent = myProducts.reduce((total, p) => total + (p.views || 0), 0);
+            document.getElementById('sellerLikesCount').textContent = myProducts.reduce((total, p) => total + (p.reactions ? Object.values(p.reactions).reduce((a,b) => a+b, 0) : p.likes || 0), 0);
+            document.getElementById('sellerMessagesCount').textContent = Object.keys(messages).length;
+        }
+
+        function editProduct(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product || product.seller !== currentUser.name) {
+                showNotification('❌ Vous ne pouvez modifier que vos propres produits', 'error');
+                return;
+            }
+
+            document.getElementById('editProductId').value = productId;
+            document.getElementById('editProductTitle').value = product.title;
+            document.getElementById('editProductPrice').value = product.price;
+            document.getElementById('editProductDescription').value = product.description;
+            
+            document.getElementById('editProductModal').style.display = 'flex';
+        }
+
+        function closeEditProductModal() {
+            document.getElementById('editProductModal').style.display = 'none';
+        }
+
+        function deleteProduct(productId) {
+            if (!confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')) return;
+            
+            const productIndex = products.findIndex(p => p.id === productId);
+            if (productIndex !== -1 && products[productIndex].seller === currentUser.name) {
+                products.splice(productIndex, 1);
+                showNotification('🗑️ Produit supprimé avec succès', 'success');
+                loadMyProducts();
+            }
+        }
+
+        // Enhanced showSection function
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show target section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Update navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Find and activate corresponding nav link
+            const activeLink = document.querySelector(`[onclick="showSection('${sectionId}')"]`);
+            if (activeLink && activeLink.classList.contains('nav-link')) {
+                activeLink.classList.add('active');
+            }
+
+            // Load section-specific content
+            if (sectionId === 'home') {
+                loadTopProducts();
+            } else if (sectionId === 'products') {
+                loadProducts();
+            } else if (sectionId === 'sell' && !currentUser) {
+                showNotification('🔒 Veuillez vous connecter pour vendre un produit', 'error');
+                showAuthModal('login');
+                showSection('home');
+                return;
+            } else if (sectionId === 'myProducts') {
+                if (!currentUser) {
+                    showNotification('🔒 Veuillez vous connecter pour voir vos produits', 'error');
+                    showAuthModal('login');
+                    showSection('home');
+                    return;
+                }
+                loadMyProducts();
+            } else if (sectionId === 'sellerDashboard') {
+                if (!currentUser) {
+                    showNotification('🔒 Veuillez vous connecter pour accéder au tableau de bord', 'error');
+                    showAuthModal('login');
+                    showSection('home');
+                    return;
+                }
+                loadMyProducts(); // This also updates stats
+            }
+
+            // Close user dropdown if open
+            document.getElementById('userDropdown').classList.remove('active');
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Enhanced form handlers
+        document.getElementById('sellForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            if (!currentUser) {
+                showNotification('🔒 Veuillez vous connecter pour vendre un produit', 'error');
+                showAuthModal('login');
+                return;
+            }
+
+            const title = document.getElementById('productTitle').value;
+            const category = document.getElementById('productCategory').value;
+            const description = document.getElementById('productDescription').value;
+            const price = parseInt(document.getElementById('productPrice').value);
+            const type = document.getElementById('productType').value;
+            const location = document.getElementById('productLocation').value;
+
+            // Collect uploaded images
+            const productImages = uploadedImages.filter(img => img !== null && img !== undefined);
+            
+            if (productImages.length === 0) {
+                showNotification('📸 Veuillez ajouter au moins une photo', 'error');
+                return;
+            }
+
+            const newProduct = {
+                id: Date.now(),
+                title,
+                category,
+                description,
+                price,
+                type,
+                location,
+                images: productImages,
+                image: productImages[0], // For backward compatibility
+                seller: currentUser.name,
+                rating: 0,
+                likes: 0,
+                reactions: { like: 0, love: 0, wow: 0 },
+                views: 0,
+                isTopSeller: false
+            };
+
+            products.unshift(newProduct);
+            comments[newProduct.id] = [];
+            
+            showNotification('🚀 Produit publié avec succès !', 'success');
+            document.getElementById('sellForm').reset();
+            
+            // Reset image uploads
+            uploadedImages = [];
+            document.querySelectorAll('.image-upload-slot').forEach((slot, index) => {
+                slot.classList.remove('has-image');
+                slot.innerHTML = `
+                    <i class="fas fa-plus"></i>
+                    <span>${index === 0 ? 'Ajouter une photo' : `Photo ${index + 1}`}</span>
+                    <input type="file" id="productImage${index}" accept="image/*" style="display: none;" onchange="handleImageUpload(${index})">
+                `;
+                slot.onclick = () => triggerImageUpload(index);
+            });
+            
+            showSection('myProducts');
+        });
+
+        document.getElementById('editProductForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const productId = parseInt(document.getElementById('editProductId').value);
+            const product = products.find(p => p.id === productId);
+            
+            if (product && product.seller === currentUser.name) {
+                product.title = document.getElementById('editProductTitle').value;
+                product.price = parseInt(document.getElementById('editProductPrice').value);
+                product.description = document.getElementById('editProductDescription').value;
+                
+                showNotification('✅ Produit modifié avec succès !', 'success');
+                closeEditProductModal();
+                loadMyProducts();
+            }
+        });
+
+        // Star rating interaction
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('star')) {
+                const rating = parseInt(e.target.dataset.rating);
+                const stars = document.querySelectorAll('#ratingInput .star');
+                
+                stars.forEach((star, index) => {
+                    star.classList.toggle('selected', index < rating);
+                    star.textContent = index < rating ? '★' : '☆';
+                });
+            }
+        });
+
+        // Chat input on Enter
+        document.getElementById('chatInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendChatMessage();
+            }
+        });
+
         // Initialize app
         document.addEventListener('DOMContentLoaded', () => {
             updateAuthUI();
             loadTopProducts();
-            showNotification('🎉 Bienvenue sur SmartDigitalPro - Votre marketplace digital !', 'success');
+            showNotification('🎉 Bienvenue sur SmartDigitalPro - Votre marketplace complète !', 'success');
         });
     </script>
 </body>
