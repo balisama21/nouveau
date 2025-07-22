@@ -3,11 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital-Marketing - Produits Numériques Madagascar</title>
+    <title>SmartDigitalPro - Marketplace Madagascar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Import Google Fonts pour une typo moderne */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
+        :root {
+            --primary: #10b981;
+            --primary-dark: #047857;
+            --secondary: #3b82f6;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --dark: #1f2937;
+            --gray: #6b7280;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+            --border: #e5e7eb;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+            --radius-lg: 12px;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,764 +31,175 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            color: #1e293b;
-            overflow-x: hidden;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8fafc;
+            color: var(--dark);
             line-height: 1.6;
-            width: 100%;
-            max-width: 100vw;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            max-width: 100%;
-        }
-
-        /* En-tête amélioré */
+        /* Header */
         .header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
-            padding: 16px 24px;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+            box-shadow: var(--shadow);
         }
 
-        .header-container {
-            max-width: 1400px;
+        .header-flag {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            text-align: center;
+            padding: 4px 0;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .header-content {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 1rem;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            width: 100%;
-        }
-
-        .header-top {
-            display: contents; /* Sur desktop, pas de conteneur séparé */
+            gap: 1rem;
+            height: 64px;
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #059669, #dc2626);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            letter-spacing: -0.5px;
-            flex-shrink: 0;
-            min-width: fit-content;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .search-container {
             flex: 1;
-            max-width: 500px;
-            margin: 0 16px;
+            max-width: 600px;
             position: relative;
-            min-width: 200px;
         }
 
-        .search-bar {
+        .search-box {
             width: 100%;
-            padding: 16px 56px 16px 20px;
-            border: 2px solid #e2e8f0;
-            border-radius: 16px;
-            font-size: 16px;
+            padding: 0.75rem 3rem 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            font-size: 1rem;
             outline: none;
             transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.8);
-            font-weight: 400;
         }
 
-        .search-bar:focus {
-            border-color: #059669;
-            box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.1);
-            background: white;
+        .search-box:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
 
         .search-btn {
             position: absolute;
-            right: 8px;
+            right: 0.5rem;
             top: 50%;
             transform: translateY(-50%);
-            background: linear-gradient(135deg, #059669, #047857);
+            background: var(--primary);
+            color: var(--white);
             border: none;
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
+            padding: 0.5rem;
+            border-radius: var(--radius);
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            transition: all 0.3s ease;
-            font-size: 16px;
+            transition: background 0.3s ease;
         }
 
         .search-btn:hover {
-            transform: translateY(-50%) scale(1.05);
-            box-shadow: 0 8px 24px rgba(5, 150, 105, 0.3);
+            background: var(--primary-dark);
         }
 
         .header-actions {
             display: flex;
             align-items: center;
-            gap: 8px;
-            flex-shrink: 0;
+            gap: 1rem;
         }
 
-        .btn-header {
-            padding: 8px 12px;
-            border: 2px solid #e2e8f0;
-            background: rgba(255, 255, 255, 0.8);
-            color: #475569;
-            border-radius: 10px;
+        .btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            background: var(--white);
+            color: var(--dark);
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
-            font-size: 13px;
-            backdrop-filter: blur(10px);
-            white-space: nowrap;
-        }
-
-        .btn-header:hover {
-            background: #059669;
-            color: white;
-            border-color: #059669;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(5, 150, 105, 0.25);
-        }
-        
-        .btn-sell {
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
-            color: white;
-            border-color: #3b82f6;
-        }
-
-        .btn-sell:hover {
-            background: linear-gradient(135deg, #2563eb, #1d4ed8);
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
-        }
-
-        /* Bouton compte combiné */
-        .auth-btn {
-            background: linear-gradient(135deg, #059669, #047857);
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 10px;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 13px;
-            font-weight: 500;
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 6px;
-            white-space: nowrap;
+            gap: 0.5rem;
+            font-size: 0.875rem;
         }
 
-        .auth-btn:hover {
-            background: linear-gradient(135deg, #047857, #065f46);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(5, 150, 105, 0.3);
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
         }
 
-        .flag-mg, .cart-icon {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            background: #f1f5f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 16px;
-            flex-shrink: 0;
+        .btn-primary:hover {
+            background: var(--primary-dark);
         }
 
-        .flag-mg {
-            background-image: url('https://flagcdn.com/32x24/mg.png');
-            background-size: cover;
-            background-position: center;
+        .btn:hover {
+            background: var(--light-gray);
         }
 
-        .flag-mg:hover, .cart-icon:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Menu Mobile Amélioré */
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 6px;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            gap: 3px;
-        }
-
-        .mobile-menu:hover {
-            background-color: #f1f5f9;
-        }
-
-        .mobile-menu span {
-            width: 20px;
-            height: 2px;
-            background: #475569;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
-        }
-
-        .mobile-menu.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-
-        /* Navigation horizontale centrée */
+        /* Navigation */
         .nav {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.5);
-            padding: 0 24px;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
         }
 
-        .nav-container {
-            max-width: 1400px;
+        .nav-content {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 1rem;
             display: flex;
-            justify-content: center;
-            gap: 48px;
-            padding: 20px 0;
+            gap: 2rem;
         }
 
         .nav-link {
+            padding: 1rem 0;
+            color: var(--gray);
             text-decoration: none;
-            color: #64748b;
-            font-weight: 500;
-            padding: 12px 0;
             border-bottom: 2px solid transparent;
             transition: all 0.3s ease;
-            position: relative;
-            cursor: pointer;
-            font-size: 15px;
-        }
-
-        .nav-link:hover, .nav-link.active {
-            color: #059669;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 50%;
-            background: linear-gradient(135deg, #059669, #dc2626);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
-            border-radius: 1px;
-        }
-
-        .nav-link:hover::after, .nav-link.active::after {
-            width: 100%;
-        }
-
-        /* Navigation Mobile Améliorée */
-        .mobile-nav {
-            display: none;
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 80%;
-            max-width: 400px;
-            height: 100vh;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            z-index: 2000;
-            transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            padding: 80px 0 40px;
-            overflow-y: auto;
-            box-shadow: -8px 0 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .mobile-nav.active {
-            right: 0;
-        }
-
-        .mobile-nav-container {
-            padding: 0 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .mobile-nav-link {
-            display: flex;
-            align-items: center;
-            color: #475569;
-            text-decoration: none;
-            font-size: 16px;
             font-weight: 500;
-            padding: 16px 20px;
-            margin: 4px 0;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            background: rgba(248, 250, 252, 0.5);
-            cursor: pointer;
-            gap: 12px;
         }
 
-        .mobile-nav-link:hover {
-            background: rgba(5, 150, 105, 0.1);
-            color: #059669;
-            transform: translateX(8px);
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
         }
 
-        .mobile-nav-close {
-            position: absolute;
-            top: 24px;
-            right: 24px;
-            color: #64748b;
-            font-size: 24px;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            background: rgba(248, 250, 252, 0.8);
-            transition: all 0.3s ease;
-        }
-
-        .mobile-nav-close:hover {
-            background: rgba(239, 68, 68, 0.1);
-            color: #dc2626;
-            transform: rotate(90deg);
-        }
-
-        /* Contenu Principal */
+        /* Main Content */
         .main {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 24px;
+            padding: 2rem 1rem;
         }
 
-        .main > section {
-            display: none;
-        }
-        
-        .main > section.active {
-            display: block;
-        }
-
-        .hero-section {
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            border-radius: var(--radius-lg);
             text-align: center;
-            margin-bottom: 48px;
-            padding: 32px 0;
-        }
-
-        .hero-title {
-            font-size: 42px;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 16px;
-            letter-spacing: -1px;
-            line-height: 1.2;
-        }
-
-        .hero-subtitle {
-            color: #64748b;
-            font-size: 18px;
-            margin-bottom: 32px;
-            font-weight: 400;
-        }
-
-        /* Résultats de recherche */
-        .search-results {
-            background: linear-gradient(135deg, rgba(5, 150, 105, 0.05), rgba(5, 150, 105, 0.1));
-            border: 1px solid rgba(5, 150, 105, 0.2);
-            border-radius: 16px;
-            padding: 20px 24px;
-            margin-bottom: 24px;
-            display: none;
-        }
-
-        .search-results.active {
-            display: block;
-        }
-
-        .search-results-text {
-            color: #059669;
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 16px;
-        }
-
-        .search-results-count {
-            color: #64748b;
-            font-size: 14px;
-        }
-
-        .no-results {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(239, 68, 68, 0.1));
-            border: 1px solid rgba(239, 68, 68, 0.2);
-            border-radius: 16px;
-            padding: 48px;
-            text-align: center;
-            display: none;
-        }
-
-        .no-results.active {
-            display: block;
-        }
-
-        .no-results-icon {
-            font-size: 64px;
-            margin-bottom: 20px;
-            opacity: 0.6;
-        }
-
-        .no-results-title {
-            color: #dc2626;
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .no-results-text {
-            color: #64748b;
-            margin-bottom: 24px;
-            font-size: 16px;
-        }
-
-        .clear-search-btn {
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .clear-search-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3);
-        }
-
-        /* Filtres améliorés */
-        .filters {
-            display: none;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 48px;
-            align-items: center;
-            justify-content: center;
-            padding: 24px;
-            background: rgba(255, 255, 255, 0.6);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-        }
-
-        .filters.active {
-            display: flex;
-        }
-
-        .filter-btn {
-            padding: 12px 20px;
-            border: 2px solid #e2e8f0;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 14px;
-            font-weight: 500;
-            color: #475569;
-            backdrop-filter: blur(10px);
-        }
-
-        .filter-btn:hover, .filter-btn.active {
-            background: #059669;
-            color: white;
-            border-color: #059669;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(5, 150, 105, 0.25);
-        }
-
-        .filter-btn.top-seller {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            color: white;
-            border-color: #f59e0b;
-        }
-
-        .filter-btn.top-seller:hover {
-            background: linear-gradient(135deg, #d97706, #b45309);
-            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.3);
-        }
-
-        /* Grille des produits améliorée */
-        .products-grid {
-            display: none;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 32px;
-            margin-bottom: 80px;
-            padding: 0 8px;
-        }
-
-        .products-grid.active {
-            display: grid;
-        }
-
-        .product-card {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            cursor: pointer;
-            position: relative;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(226, 232, 240, 0.5);
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12);
-            border-color: rgba(5, 150, 105, 0.2);
-        }
-
-        .product-card.hidden {
-            display: none;
-        }
-
-        /* Images des produits avec ratio 2:1 */
-        .product-image {
-            width: 100%;
-            height: 280px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 18px;
-            font-weight: 600;
+            margin-bottom: 3rem;
             position: relative;
             overflow: hidden;
         }
 
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.05);
-        }
-
-        /* Arrière-plans de secours */
-        .product-image.canva { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); }
-        .product-image.ebook { background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%); }
-        .product-image.formation { background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%); }
-        .product-image.calendar { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
-        .product-image.coaching { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
-        .product-image.webdesign { background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%); }
-        .product-image.logistique { background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%); }
-
-        .product-badge {
-            position: absolute;
-            top: 16px;
-            right: 16px;
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
-            color: white;
-            padding: 6px 12px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            z-index: 10;
-            box-shadow: 0 4px 16px rgba(220, 38, 38, 0.3);
-        }
-
-        .product-badge.new-badge {
-            background: linear-gradient(135deg, #059669, #047857);
-            box-shadow: 0 4px 16px rgba(5, 150, 105, 0.3);
-        }
-
-        /* Informations produit avec moins de hauteur */
-        .product-info {
-            padding: 24px;
-            min-height: 180px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .product-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #1e293b;
-            margin-bottom: 8px;
-            line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            min-height: 48px;
-        }
-
-        .product-category {
-            font-size: 12px;
-            color: #059669;
-            background: rgba(5, 150, 105, 0.1);
-            padding: 4px 8px;
-            border-radius: 8px;
-            display: inline-block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
-        .product-rating {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-
-        .stars {
-            color: #f59e0b;
-            font-size: 14px;
-        }
-
-        .rating-count {
-            color: #64748b;
-            font-size: 14px;
-        }
-
-        .product-price {
-            font-size: 18px;
-            font-weight: 700;
-            color: #059669;
-            margin-bottom: 8px;
-        }
-
-        .old-price {
-            color: #94a3b8;
-            text-decoration: line-through;
-            font-size: 14px;
-            margin-left: 8px;
-            font-weight: 400;
-        }
-
-        .discount {
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
-            color: white;
-            padding: 2px 8px;
-            border-radius: 8px;
-            font-size: 12px;
-            margin-left: 8px;
-            font-weight: 600;
-        }
-
-        .product-actions {
-            display: flex;
-            gap: 8px;
-            margin-top: auto;
-        }
-
-        .download-btn {
-            flex: 1;
-            background: linear-gradient(135deg, #059669, #047857);
-            color: white;
-            border: none;
-            padding: 12px 16px;
-            border-radius: 12px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-size: 14px;
-        }
-
-        .download-btn:hover {
-            background: linear-gradient(135deg, #047857, #065f46);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(5, 150, 105, 0.3);
-        }
-
-        .download-btn.premium {
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
-        }
-
-        .download-btn.premium:hover {
-            background: linear-gradient(135deg, #b91c1c, #991b1b);
-            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3);
-        }
-
-        .preview-btn {
-            background: rgba(255, 255, 255, 0.8);
-            color: #059669;
-            border: 2px solid #059669;
-            padding: 12px 16px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            font-size: 14px;
-            backdrop-filter: blur(10px);
-        }
-
-        .preview-btn:hover {
-            background: #059669;
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* Section Newsletter intégrée au footer */
-        .footer {
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #f8fafc 100%);
-            color: #475569;
-            padding: 0;
-            margin-top: 80px;
-            border-top: 1px solid rgba(226, 232, 240, 0.8);
-        }
-
-        .newsletter-section {
-            background: linear-gradient(135deg, #059669 0%, #047857 100%);
-            color: white;
-            padding: 60px 40px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .newsletter-section::before {
+        .hero::before {
             content: '';
             position: absolute;
             top: 0;
@@ -783,483 +210,505 @@
             opacity: 0.3;
         }
 
-        .newsletter-container {
-            max-width: 600px;
-            margin: 0 auto;
+        .hero-content {
             position: relative;
             z-index: 1;
         }
 
-        .newsletter-title {
-            font-size: 36px;
+        .hero h1 {
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 1rem;
             text-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            letter-spacing: -0.5px;
         }
 
-        .newsletter-subtitle {
-            font-size: 18px;
-            margin-bottom: 32px;
+        .hero p {
+            font-size: 1.25rem;
             opacity: 0.9;
-            line-height: 1.6;
+            margin-bottom: 2rem;
         }
 
-        .newsletter-form {
-            display: flex;
-            gap: 16px;
-            max-width: 400px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            min-width: 200px;
-            padding: 16px 20px;
-            border: none;
-            border-radius: 16px;
-            font-size: 16px;
-            outline: none;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-        }
-
-        .newsletter-input:focus {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-        }
-
-        .newsletter-btn {
-            padding: 16px 32px;
-            background: rgba(255, 255, 255, 0.95);
-            color: #059669;
-            border: none;
-            border-radius: 16px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .newsletter-btn:hover {
-            background: white;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-        }
-
-        /* Footer principal */
-        .footer-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 60px 40px 40px;
-        }
-
-        .footer-content {
+        /* Stats Section */
+        .stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 48px;
-            margin-bottom: 48px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
 
-        .footer-section h3 {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 24px;
-            color: #1e293b;
+        .stat-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
         }
 
-        .footer-section p {
-            color: #64748b;
-            line-height: 1.7;
-            margin-bottom: 20px;
+        .stat-item:hover {
+            transform: translateY(-4px);
         }
 
-        .footer-section ul {
-            list-style: none;
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
         }
 
-        .footer-section ul li {
-            margin-bottom: 12px;
+        .stat-label {
+            color: var(--gray);
+            font-weight: 500;
         }
 
-        .footer-section a {
-            color: #64748b;
-            text-decoration: none;
+        /* Filters */
+        .filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border);
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Product Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
             transition: all 0.3s ease;
             cursor: pointer;
-            font-weight: 400;
+            border: 1px solid var(--border);
         }
 
-        .footer-section a:hover {
-            color: #059669;
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
         }
 
-        .social-icons {
-            display: flex;
-            gap: 16px;
-        }
-
-        .social-icon {
-            width: 44px;
-            height: 44px;
-            background: rgba(5, 150, 105, 0.1);
-            border-radius: 12px;
+        .product-image {
+            width: 100%;
+            height: 220px;
+            background: var(--light-gray);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #059669;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            color: var(--gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--danger);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius);
+            font-size: 0.75rem;
             font-weight: 600;
-            font-size: 18px;
-            text-decoration: none;
+            z-index: 2;
         }
 
-        .social-icon:hover {
-            background: #059669;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(5, 150, 105, 0.25);
+        .product-badge.top-seller {
+            background: var(--warning);
         }
 
-        .social-icon.facebook {
-            background: rgba(24, 119, 242, 0.1);
-            color: #1877f2;
+        .product-badge.new {
+            background: var(--primary);
         }
 
-        .social-icon.facebook:hover {
-            background: #1877f2;
-            color: white;
-            box-shadow: 0 8px 24px rgba(24, 119, 242, 0.25);
+        .product-info {
+            padding: 1.5rem;
         }
 
-        .social-icon.instagram {
-            background: rgba(225, 48, 108, 0.1);
-            color: #e1306c;
+        .product-category {
+            color: var(--primary);
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .social-icon.instagram:hover {
-            background: linear-gradient(45deg, #e1306c, #fd1d1d, #fcb045);
-            color: white;
-            box-shadow: 0 8px 24px rgba(225, 48, 108, 0.25);
+        .product-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
-        .social-icon.linkedin {
-            background: rgba(0, 119, 181, 0.1);
-            color: #0077b5;
+        .product-seller {
+            color: var(--gray);
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
         }
 
-        .social-icon.linkedin:hover {
-            background: #0077b5;
-            color: white;
-            box-shadow: 0 8px 24px rgba(0, 119, 181, 0.25);
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
         }
 
-        .social-icon.youtube {
-            background: rgba(255, 0, 0, 0.1);
-            color: #ff0000;
+        .stars {
+            color: var(--warning);
         }
 
-        .social-icon.youtube:hover {
-            background: #ff0000;
-            color: white;
-            box-shadow: 0 8px 24px rgba(255, 0, 0, 0.25);
+        .rating-count {
+            color: var(--gray);
+            font-size: 0.875rem;
         }
 
-        .footer-bottom {
-            border-top: 1px solid rgba(226, 232, 240, 0.8);
-            padding-top: 24px;
-            text-align: center;
-            color: #64748b;
-            font-size: 14px;
-        }
-
-        .footer-bottom .heart {
-            color: #dc2626;
-            animation: heartbeat 1.5s ease-in-out infinite;
-        }
-
-        @keyframes heartbeat {
-            0% { transform: scale(1); }
-            14% { transform: scale(1.2); }
-            28% { transform: scale(1); }
-            42% { transform: scale(1.2); }
-            70% { transform: scale(1); }
-        }
-
-        /* Styles pour les formulaires */
-        .form-section, .product-detail-section {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
-            max-width: 800px;
-            margin: 40px auto;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(226, 232, 240, 0.5);
-        }
-
-        .form-title, .detail-title {
-            font-size: 28px;
+        .product-price {
+            font-size: 1.5rem;
             font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 32px;
-            text-align: center;
-            letter-spacing: -0.5px;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn-small {
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
+            flex: 1;
+        }
+
+        /* Forms */
+        .form-section {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
             font-weight: 500;
-            color: #374151;
-            font-size: 15px;
+            color: var(--dark);
         }
 
-        .form-group input[type="text"],
-        .form-group input[type="email"],
-        .form-group input[type="password"],
-        .form-group input[type="number"],
-        .form-group input[type="file"],
-        .form-group select,
-        .form-group textarea {
+        .form-control {
             width: 100%;
-            padding: 16px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 16px;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
             transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
         }
 
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+        .form-control:focus {
             outline: none;
-            border-color: #059669;
-            box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.1);
-            background: white;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
         }
 
-        .form-actions {
-            text-align: center;
-            margin-top: 32px;
-        }
-
-        .form-submit-btn {
-            background: linear-gradient(135deg, #059669, #047857);
-            color: white;
-            border: none;
-            padding: 16px 32px;
-            border-radius: 16px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 16px rgba(5, 150, 105, 0.3);
-        }
-
-        .form-submit-btn:hover {
-            background: linear-gradient(135deg, #047857, #065f46);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(5, 150, 105, 0.4);
-        }
-
-        /* Styles pour la page de détail */
-        .product-detail-content {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .product-detail-image-container {
-            flex: 1;
-            min-width: 300px;
-            height: 400px;
-            background: #f8fafc;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .product-detail-image-container img, .product-detail-image-container video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .product-detail-info {
-            flex: 1;
-        }
-
-        .detail-category {
-            font-size: 14px;
-            color: #059669;
-            background: rgba(5, 150, 105, 0.1);
-            padding: 6px 12px;
-            border-radius: 12px;
-            display: inline-block;
-            margin-bottom: 16px;
-            font-weight: 500;
-        }
-
-        .detail-seller {
-            color: #64748b;
-            margin-bottom: 20px;
-            font-size: 16px;
-        }
-
-        .detail-price {
-            font-size: 32px;
-            font-weight: 700;
-            color: #059669;
-            margin-bottom: 24px;
-        }
-
-        .detail-actions {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 24px;
-            align-items: center;
-        }
-        
-        .detail-like-btn {
-            background: rgba(255, 255, 255, 0.8);
-            border: 2px solid #dc2626;
-            color: #dc2626;
-            width: 60px;
-            height: 48px;
-            border-radius: 12px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            backdrop-filter: blur(10px);
-        }
-
-        .detail-like-btn:hover {
-            background: #dc2626;
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(220, 38, 38, 0.3);
-        }
-
-        .detail-description {
-            line-height: 1.8;
-            color: #475569;
-            font-size: 16px;
-        }
-
-        /* Section des commentaires */
-        .comments-section {
-            margin-top: 48px;
-            border-top: 1px solid #e2e8f0;
-            padding-top: 32px;
-        }
-
-        .comments-section h4 {
-            font-size: 20px;
-            margin-bottom: 24px;
-            font-weight: 600;
-            color: #1e293b;
-        }
-        
-        #commentsList .comment-item {
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 12px;
-            background: rgba(248, 250, 252, 0.8);
-            border: 1px solid #e2e8f0;
-        }
-
-        #commentsList .comment-author {
-            font-weight: 600;
-            color: #1e293b;
-            margin-bottom: 8px;
-        }
-        
-        #commentsList .comment-text {
-            color: #64748b;
-            line-height: 1.6;
-        }
-        
-        .comment-form {
-            margin-top: 24px;
-            padding: 24px;
-            background: rgba(248, 250, 252, 0.5);
-            border-radius: 16px;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .comment-form h5 {
-            margin-bottom: 16px;
-            font-weight: 600;
-            color: #1e293b;
-        }
-
-        .comment-form textarea {
-            width: 100%;
-            height: 100px;
-            padding: 16px;
-            border-radius: 12px;
-            border: 2px solid #e2e8f0;
-            margin-bottom: 16px;
+        textarea.form-control {
             resize: vertical;
-            font-family: inherit;
-            transition: all 0.3s ease;
+            min-height: 120px;
         }
 
-        .comment-form textarea:focus {
-            border-color: #059669;
-            box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.1);
-        }
-        
-        .comment-form button {
-            background: linear-gradient(135deg, #059669, #047857);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-        
-        .comment-form button:hover {
-            background: linear-gradient(135deg, #047857, #065f46);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(5, 150, 105, 0.3);
-        }
-
-        /* Indicateur de chargement */
-        .loading-spinner {
+        /* Modal */
+        .modal {
             display: none;
-            text-align: center;
-            padding: 60px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            padding: 1rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .modal-content {
+            background: var(--white);
+            max-width: 500px;
+            margin: 2rem auto;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            animation: modalSlide 0.3s ease-out;
+        }
+
+        @keyframes modalSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: var(--light-gray);
+            color: var(--danger);
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        /* Notifications */
+        .notification {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border-left: 4px solid var(--primary);
+            z-index: 3000;
+            display: none;
+            animation: notificationSlide 0.3s ease-out;
+        }
+
+        @keyframes notificationSlide {
+            from {
+                opacity: 0;
+                transform: translateX(100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .notification.success {
+            border-left-color: var(--primary);
+        }
+
+        .notification.error {
+            border-left-color: var(--danger);
+        }
+
+        /* Cart */
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--danger);
+            color: var(--white);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* User Dropdown */
+        .user-menu {
+            position: relative;
+        }
+
+        .user-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-lg);
+            min-width: 200px;
+            display: none;
+            z-index: 1000;
+            animation: dropdownSlide 0.2s ease-out;
+        }
+
+        @keyframes dropdownSlide {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .user-dropdown.active {
+            display: block;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--dark);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background: var(--light-gray);
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Quick view overlay */
+        .quick-view {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .quick-view-content {
+            background: var(--white);
+            max-width: 900px;
+            max-height: 90vh;
+            border-radius: var(--radius-lg);
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlide 0.3s ease-out;
+        }
+
+        .quick-view-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            color: var(--gray);
+            transition: all 0.3s ease;
+        }
+
+        .quick-view-close:hover {
+            background: var(--danger);
+            color: var(--white);
+        }
+
+        /* Loading animation */
+        .loading {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
         }
 
         .spinner {
-            width: 48px;
-            height: 48px;
-            border: 4px solid #e2e8f0;
-            border-top: 4px solid #059669;
+            border: 4px solid var(--light-gray);
+            border-top: 4px solid var(--primary);
             border-radius: 50%;
+            width: 40px;
+            height: 40px;
             animation: spin 1s linear infinite;
-            margin: 0 auto 24px;
         }
 
         @keyframes spin {
@@ -1267,1793 +716,1310 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* MODALE D'AUTHENTIFICATION */
-        .auth-modal {
-            display: none;
-            position: fixed;
-            z-index: 3000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.6);
-            backdrop-filter: blur(8px);
-            padding: 20px;
-            box-sizing: border-box;
+        /* Featured products */
+        .featured-section {
+            margin-bottom: 3rem;
         }
 
-        .auth-modal-content {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            margin: 5% auto;
-            padding: 32px;
-            border: 1px solid rgba(226, 232, 240, 0.5);
-            width: 100%;
-            max-width: 420px;
-            max-height: 90vh;
-            border-radius: 20px;
-            box-shadow: 0 20px 64px rgba(0,0,0,0.15);
-            position: relative;
-            animation: slideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            overflow-y: auto;
-            box-sizing: border-box;
-        }
-
-        @keyframes slideIn {
-            from { transform: translateY(-32px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        .auth-modal .close-btn {
-            color: #94a3b8;
-            position: absolute;
-            top: 20px;
-            right: 24px;
-            font-size: 24px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .auth-modal .close-btn:hover {
-            color: #dc2626;
-            background: rgba(239, 68, 68, 0.1);
-        }
-        
-        .auth-modal h2 {
-            text-align: center;
-            margin-bottom: 32px;
-            font-size: 28px;
-            font-weight: 700;
-            color: #1e293b;
-            background: linear-gradient(135deg, #059669, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .google-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            width: 100%;
-            padding: 16px;
-            border-radius: 16px;
-            border: 2px solid #e2e8f0;
-            background: rgba(255, 255, 255, 0.9);
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-bottom: 24px;
-            font-weight: 500;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-        
-        .google-btn:hover {
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-            transform: translateY(-2px);
-            background: white;
-            border-color: #d1d5db;
-        }
-
-        .auth-form-group {
-            margin-bottom: 24px;
-            position: relative;
-        }
-
-        .auth-form-group label {
-            display: block;
-            margin-bottom: 8px;
+        .section-title {
+            font-size: 1.75rem;
             font-weight: 600;
-            color: #374151;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .auth-form-group input {
-            width: 100%;
-            padding: 16px 20px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            box-sizing: border-box;
-        }
-
-        .auth-form-group input:focus {
-            outline: none;
-            border-color: #059669;
-            box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.1);
-            background: white;
-            transform: translateY(-1px);
-        }
-
-        .auth-form-group input::placeholder {
-            color: #9ca3af;
-            font-size: 15px;
-        }
-
-        .auth-form-group .input-icon {
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #9ca3af;
-            font-size: 18px;
-            pointer-events: none;
-        }
-
-        .password-toggle {
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: #6b7280;
-            cursor: pointer;
-            font-size: 16px;
-            padding: 4px;
-            border-radius: 4px;
-            transition: color 0.3s ease;
-        }
-
-        .password-toggle:hover {
-            color: #059669;
-        }
-
-        .auth-submit-btn {
-            width: 100%;
-            background: linear-gradient(135deg, #059669, #047857);
-            color: white;
-            border: none;
-            padding: 18px 32px;
-            border-radius: 16px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 16px rgba(5, 150, 105, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-top: 8px;
-        }
-
-        .auth-submit-btn:hover {
-            background: linear-gradient(135deg, #047857, #065f46);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(5, 150, 105, 0.4);
-        }
-
-        .auth-submit-btn:active {
-            transform: translateY(0);
-        }
-
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 24px;
-        }
-
-        .checkbox-group input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
-            accent-color: #059669;
-            cursor: pointer;
-        }
-
-        .checkbox-group label {
-            font-size: 14px;
-            color: #6b7280;
-            cursor: pointer;
-            margin: 0;
-            text-transform: none;
-            letter-spacing: normal;
-            font-weight: 400;
-        }
-
-        .forgot-password {
-            text-align: right;
-            margin-top: -16px;
-            margin-bottom: 24px;
-        }
-
-        .forgot-password a {
-            color: #059669;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .forgot-password a:hover {
-            color: #047857;
-            text-decoration: underline;
-        }
-        
-        .divider {
+            margin-bottom: 1.5rem;
+            color: var(--dark);
             text-align: center;
-            margin: 24px 0;
-            color: #94a3b8;
-            position: relative;
         }
 
-        .divider::before {
+        .featured-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .featured-main {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            padding: 3rem;
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .featured-main::before {
             content: '';
             position: absolute;
-            top: 50%;
+            top: 0;
             left: 0;
             right: 0;
-            height: 1px;
-            background: #e2e8f0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .featured-main-content {
+            position: relative;
             z-index: 1;
         }
 
-        .divider::after {
-            content: 'ou';
-            background: rgba(255, 255, 255, 0.95);
-            padding: 0 16px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .auth-form-toggle {
-            text-align: center;
-            margin-top: 24px;
-        }
-        
-        .auth-form-toggle a {
-            color: #059669;
-            text-decoration: none;
-            font-weight: 500;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-        
-        .auth-form-toggle a:hover {
-            color: #047857;
-            text-decoration: underline;
-        }
-
-        /* Boutons d'édition/suppression */
-        .product-owner-actions {
+        .featured-sidebar {
             display: flex;
-            gap: 8px;
-            margin-top: 12px;
+            flex-direction: column;
+            gap: 1rem;
         }
 
-        .edit-btn, .delete-btn {
-            flex: 1;
-            padding: 8px 12px;
-            border-radius: 8px;
-            border: none;
-            color: white;
-            font-weight: 500;
+        .featured-item {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
             cursor: pointer;
             transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .featured-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        /* Section styles */
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* Search results */
+        .search-results {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(16, 185, 129, 0.1));
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            display: none;
+        }
+
+        .search-results.active {
+            display: block;
+        }
+
+        .search-results-text {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .search-results-count {
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--white);
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .footer-section p {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--light-gray);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+            padding-top: 1rem;
             text-align: center;
-            font-size: 13px;
-        }
-        
-        .edit-btn {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-        }
-        .edit-btn:hover {
-            background: linear-gradient(135deg, #d97706, #b45309);
-            transform: translateY(-1px);
-        }
-        
-        .delete-btn {
-            background: linear-gradient(135deg, #dc2626, #b91c1c);
-        }
-        .delete-btn:hover {
-            background: linear-gradient(135deg, #b91c1c, #991b1b);
-            transform: translateY(-1px);
+            color: var(--gray);
+            font-size: 0.875rem;
         }
 
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .nav-container {
-                gap: 32px;
-            }
-            
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-                gap: 24px;
-            }
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            .header {
-                padding: 8px 16px 12px;
-            }
-
-            .header-flag-section {
-                margin-bottom: 8px;
-                padding: 6px 0;
-            }
-
-            .flag-text {
-                font-size: 11px;
-            }
-
-            .header-container {
+            .header-content {
                 flex-direction: column;
-                gap: 12px;
-                align-items: stretch;
+                height: auto;
+                padding: 1rem;
+                gap: 1rem;
             }
 
-            /* Première ligne mobile : Logo + Actions */
-            .header-top {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-            }
-
-            .logo {
-                font-size: 18px;
-                min-width: fit-content;
-            }
-
-            /* Deuxième ligne mobile : Barre de recherche pleine largeur */
             .search-container {
-                width: 100%;
-                margin: 0;
                 order: 2;
                 max-width: 100%;
             }
 
-            .search-bar {
-                padding: 12px 40px 12px 16px;
-                font-size: 14px;
-                width: 100%;
+            .hero h1 {
+                font-size: 2rem;
             }
 
-            .search-btn {
-                width: 36px;
-                height: 36px;
-                font-size: 14px;
+            .hero p {
+                font-size: 1rem;
             }
 
-            .header-actions {
-                gap: 8px;
-                flex-wrap: nowrap;
-            }
-
-            .btn-header, .auth-btn {
-                padding: 8px 10px;
-                font-size: 12px;
-                border-radius: 8px;
-                min-width: 60px;
-            }
-
-            .cart-icon {
-                width: 32px;
-                height: 32px;
-                font-size: 16px;
-            }
-
-            .mobile-menu {
-                display: flex;
-                padding: 4px;
-            }
-
-            .mobile-menu span {
-                width: 18px;
-                height: 1.5px;
-            }
-
-            .nav {
-                display: none;
-            }
-
-            .mobile-nav {
-                display: block;
-            }
-
-            .hero-title {
-                font-size: 32px;
-            }
-
-            .hero-subtitle {
-                font-size: 16px;
+            .nav-content {
+                overflow-x: auto;
+                white-space: nowrap;
             }
 
             .products-grid {
                 grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                gap: 20px;
-                padding: 0 4px;
+                gap: 1rem;
             }
 
             .filters {
-                justify-content: center;
-                padding: 20px;
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 0.5rem;
             }
 
             .filter-btn {
-                font-size: 13px;
-                padding: 10px 16px;
-            }
-
-            .newsletter-title {
-                font-size: 28px;
-            }
-
-            .newsletter-subtitle {
-                font-size: 16px;
-            }
-
-            .newsletter-form {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .newsletter-input {
-                width: 100%;
-                max-width: 320px;
-            }
-
-            .newsletter-btn {
-                width: 100%;
-                max-width: 200px;
-            }
-
-            .product-detail-content {
-                flex-direction: column;
-                gap: 24px;
-            }
-
-            .product-detail-image-container {
-                min-width: unset;
-                height: 300px;
-            }
-
-            .auth-modal {
-                padding: 16px;
-            }
-
-            .auth-modal-content {
-                margin: 10% auto;
-                padding: 24px;
-                max-height: 85vh;
-            }
-
-            .footer-container {
-                padding: 48px 24px 32px;
-            }
-
-            .footer-content {
-                gap: 32px;
-            }
-
-            /* Menu utilisateur sur mobile */
-            .user-dropdown {
-                position: fixed;
-                top: auto;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                border-radius: 16px 16px 0 0;
-                margin-top: 0;
-                min-width: unset;
-                max-width: unset;
-                z-index: 3000;
-            }
-
-            .user-dropdown.active {
-                animation: slideUp 0.3s ease-out;
-            }
-
-            @keyframes slideUp {
-                from {
-                    transform: translateY(100%);
-                }
-                to {
-                    transform: translateY(0);
-                }
-            }
-
-            #username-display {
-                font-size: 12px;
-                max-width: 80px;
-                overflow: hidden;
-                text-overflow: ellipsis;
                 white-space: nowrap;
-                font-weight: 500;
+            }
+
+            .featured-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+
+            .modal-content {
+                margin: 1rem auto;
             }
         }
 
         @media (max-width: 480px) {
-            .main {
-                padding: 32px 12px;
-            }
-
-            .header {
-                padding: 6px 12px 10px;
-            }
-
-            .header-flag-section {
-                margin-bottom: 6px;
-                padding: 4px 0;
-            }
-
-            .flag-text {
-                font-size: 10px;
-            }
-
-            .header-container {
-                gap: 8px;
-            }
-
-            .logo {
-                font-size: 16px;
-            }
-
-            .search-container {
-                margin: 0;
-            }
-
-            .search-bar {
-                padding: 10px 35px 10px 12px;
-                font-size: 13px;
-            }
-
-            .search-btn {
-                width: 32px;
-                height: 32px;
-                font-size: 13px;
-            }
-
-            .btn-header, .auth-btn {
-                padding: 6px 8px;
-                font-size: 11px;
-                min-width: 50px;
-            }
-
-            .cart-icon {
-                width: 28px;
-                height: 28px;
-                font-size: 14px;
-            }
-
             .products-grid {
                 grid-template-columns: 1fr;
-                gap: 16px;
             }
 
-            .product-card {
-                font-size: 14px;
+            .form-section {
+                padding: 1rem;
             }
 
-            .product-info {
-                padding: 20px;
-                height: auto;
+            .hero {
+                padding: 2rem 1rem;
             }
 
-            .product-title {
-                font-size: 15px;
-            }
-
-            .product-price {
-                font-size: 16px;
-            }
-
-            .newsletter-section {
-                padding: 48px 20px;
-            }
-
-            .newsletter-title {
-                font-size: 24px;
-            }
-
-            .newsletter-subtitle {
-                font-size: 14px;
-            }
-
-            .product-actions {
-                flex-direction: column;
-                gap: 8px;
-            }
-
-            .download-btn, .preview-btn {
-                width: 100%;
-            }
-
-            .form-section, .product-detail-section {
-                padding: 20px;
-                margin: 20px auto;
-            }
-
-            .form-title, .detail-title {
-                font-size: 24px;
-            }
-
-            .product-detail-image-container {
-                height: 250px;
-            }
-
-            .detail-actions {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .detail-like-btn {
-                width: 100%;
-                height: 48px;
-            }
-
-            .auth-modal {
-                padding: 12px;
-            }
-
-            .auth-modal-content {
-                margin: 5% auto;
-                padding: 20px;
-                max-height: 90vh;
-            }
-
-            .auth-modal h2 {
-                font-size: 20px;
-                margin-bottom: 24px;
-            }
-
-            .google-btn {
-                padding: 12px;
-                font-size: 14px;
-            }
-
-            .auth-form-group input {
-                padding: 12px;
-                font-size: 14px;
-            }
-
-            #username-display {
-                max-width: 40px;
+            .hero h1 {
+                font-size: 1.75rem;
             }
         }
     </style>
 </head>
-<body>
+          <body>
+    <!-- Header Flag -->
+    <div class="header-flag">
+        🇲🇬 Marketplace #1 à Madagascar - Livraison gratuite pour les produits numériques
+    </div>
+
+    <!-- Header -->
     <header class="header">
-        <div class="header-flag-section">
-            <div class="flag-mg-header"></div>
-            <span class="flag-text">Plateforme basée à Madagascar</span>
-        </div>
-        
-        <div class="header-container">
-            <div class="header-top">
-                <div class="logo">SmartDigitalPro</div>
-                
-                <div class="header-actions">
-                    <a href="#" class="btn-header btn-sell" data-action="sell">Vendre</a>
-                    <div id="auth-links">
-                        <button class="auth-btn" data-action="show-auth">
-                            👤 Compte
-                        </button>
-                    </div>
-                    <div id="user-profile" class="user-menu" style="display: none;">
-                        <button class="auth-btn" id="userMenuBtn">
-                            👤 <span id="username-display"></span>
-                        </button>
-                        <div class="user-dropdown" id="userDropdown">
-                            <div class="user-info">
-                                <div class="user-name" id="userDropdownName"></div>
-                                <div class="user-email" id="userDropdownEmail"></div>
-                            </div>
-                            <a href="#" class="user-menu-item" data-action="profile">Mon profil</a>
-                            <a href="#" class="user-menu-item" data-action="orders">Mes commandes</a>
-                            <a href="#" class="user-menu-item" data-action="products">Mes produits</a>
-                            <a href="#" class="user-menu-item logout" data-action="logout">Déconnexion</a>
+        <div class="header-content">
+            <a href="#" class="logo" onclick="showSection('home')">
+                <i class="fas fa-store"></i>
+                SmartDigitalPro
+            </a>
+
+            <div class="search-container">
+                <input type="text" class="search-box" id="searchInput" placeholder="Rechercher des produits, formations, e-books...">
+                <button class="search-btn" onclick="performSearch()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <div class="header-actions">
+                <!-- Auth buttons (shown when not logged in) -->
+                <div id="authButtons" style="display: flex; gap: 1rem;">
+                    <button class="btn" onclick="showAuthModal('login')">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Connexion
+                    </button>
+                    <button class="btn btn-primary" onclick="showAuthModal('register')">
+                        <i class="fas fa-user-plus"></i>
+                        S'inscrire
+                    </button>
+                </div>
+
+                <!-- User menu (shown when logged in) -->
+                <div id="userMenu" class="user-menu" style="display: none;">
+                    <button class="btn" onclick="showCart()">
+                        <div class="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-badge" id="cartBadge">0</span>
                         </div>
-                    </div>
-                    <div class="cart-icon">🛒</div>
-                    <div class="mobile-menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    </button>
+                    <button class="btn" onclick="toggleUserDropdown()">
+                        <i class="fas fa-user"></i>
+                        <span id="userName">Utilisateur</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#" class="dropdown-item" onclick="showSection('sell')">
+                            <i class="fas fa-plus"></i> Vendre un produit
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-heart"></i> Mes favoris
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-box"></i> Mes commandes
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-user-cog"></i> Paramètres
+                        </a>
+                        <a href="#" class="dropdown-item" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i> Déconnexion
+                        </a>
                     </div>
                 </div>
-            </div>
-            
-            <div class="search-container">
-                <input type="text" class="search-bar" id="searchInput" placeholder="Rechercher des produits numériques...">
-                <button class="search-btn">🔍</button>
             </div>
         </div>
     </header>
 
+    <!-- Navigation -->
     <nav class="nav">
-        <div class="nav-container">
-            <a class="nav-link" data-section="home">Accueil</a>
-            <a class="nav-link" data-section="products">Produits</a>
-            <a class="nav-link" data-section="formations">Formations</a>
-            <a class="nav-link" data-section="services">Services</a>
-            <a class="nav-link" data-section="blog">Blog</a>
-            <a class="nav-link" data-section="contact">Contact</a>
+        <div class="nav-content">
+            <a href="#" class="nav-link active" onclick="showSection('home')">
+                <i class="fas fa-home"></i> Accueil
+            </a>
+            <a href="#" class="nav-link" onclick="showSection('products')">
+                <i class="fas fa-box"></i> Produits
+            </a>
+            <a href="#" class="nav-link" onclick="showSection('formations')">
+                <i class="fas fa-graduation-cap"></i> Formations
+            </a>
+            <a href="#" class="nav-link" onclick="showSection('services')">
+                <i class="fas fa-cogs"></i> Services
+            </a>
+            <a href="#" class="nav-link" onclick="showSection('blog')">
+                <i class="fas fa-blog"></i> Blog
+            </a>
+            <a href="#" class="nav-link" onclick="showSection('contact')">
+                <i class="fas fa-envelope"></i> Contact
+            </a>
         </div>
     </nav>
 
-    <div class="mobile-nav">
-        <div class="mobile-nav-close">×</div>
-        <div class="mobile-nav-container">
-            <a class="mobile-nav-link" data-section="home">🏠 Accueil</a>
-            <a class="mobile-nav-link" data-action="sell">💰 Vendre un produit</a>
-            <a class="mobile-nav-link" data-section="products">📦 Produits</a>
-            <a class="mobile-nav-link" data-section="formations">🎓 Formations</a>
-            <a class="mobile-nav-link" data-section="services">⚙️ Services</a>
-            <a class="mobile-nav-link" data-section="blog">📝 Blog</a>
-            <a class="mobile-nav-link" data-section="contact">📧 Contact</a>
-        </div>
-    </div>
-
+    <!-- Main Content -->
     <main class="main">
-        <section class="hero-section" id="home">
-            <h1 class="hero-title" id="heroTitle">Les produits numériques les plus vendus</h1>
-            <p class="hero-subtitle" id="heroSubtitle">1000+ résultats pertinents</p>
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <!-- Hero -->
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>🚀 Boostez votre business digital</h1>
+                    <p>Découvrez des milliers de produits numériques, formations et services pour développer votre entreprise à Madagascar et dans l'Océan Indien.</p>
+                    <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                        <button class="btn btn-primary" onclick="showSection('products')" style="background: white; color: var(--primary); border: none; padding: 1rem 2rem; font-size: 1.1rem;">
+                            <i class="fas fa-rocket"></i>
+                            Explorer les produits
+                        </button>
+                        <button class="btn" onclick="showSection('sell')" style="background: transparent; color: white; border: 2px solid white; padding: 1rem 2rem; font-size: 1.1rem;">
+                            <i class="fas fa-plus"></i>
+                            Commencer à vendre
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Produits disponibles</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2,500+</div>
+                    <div class="stat-label">Clients satisfaits</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">Vendeurs actifs</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Support client</div>
+                </div>
+            </div>
+
+            <!-- Featured Section -->
+            <div class="featured-section">
+                <h2 class="section-title">🌟 Offres spéciales</h2>
+                <div class="featured-grid">
+                    <div class="featured-main">
+                        <div class="featured-main-content">
+                            <h3 style="font-size: 2rem; margin-bottom: 1rem;">🔥 Offre limitée</h3>
+                            <p style="font-size: 1.25rem; margin-bottom: 1.5rem;">Pack complet Marketing Digital - 50% de réduction</p>
+                            <button class="btn" style="align-self: flex-start; background: white; color: var(--primary); border: none; padding: 0.75rem 1.5rem;">
+                                <i class="fas fa-fire"></i>
+                                Voir l'offre
+                            </button>
+                        </div>
+                    </div>
+                    <div class="featured-sidebar">
+                        <div class="featured-item">
+                            <h4><i class="fas fa-graduation-cap"></i> Nouvelles formations</h4>
+                            <p>Découvrez nos dernières formations en marketing digital</p>
+                        </div>
+                        <div class="featured-item">
+                            <h4><i class="fas fa-palette"></i> Modèles Canva</h4>
+                            <p>Plus de 500 modèles professionnels disponibles</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Categories -->
+            <div class="featured-section">
+                <h2 class="section-title">📂 Catégories populaires</h2>
+                <div class="filters">
+                    <button class="filter-btn" onclick="filterProducts('canva'); showSection('products');">
+                        <i class="fas fa-palette"></i> Modèles Canva
+                    </button>
+                    <button class="filter-btn" onclick="filterProducts('ebook'); showSection('products');">
+                        <i class="fas fa-book"></i> E-books
+                    </button>
+                    <button class="filter-btn" onclick="filterProducts('formation'); showSection('products');">
+                        <i class="fas fa-graduation-cap"></i> Formations
+                    </button>
+                    <button class="filter-btn" onclick="filterProducts('coaching'); showSection('products');">
+                        <i class="fas fa-users"></i> Coaching
+                    </button>
+                    <button class="filter-btn" onclick="filterProducts('webdesign'); showSection('products');">
+                        <i class="fas fa-code"></i> Web Design
+                    </button>
+                </div>
+            </div>
+
+            <!-- Top Products Preview -->
+            <div class="featured-section">
+                <h2 class="section-title">🔥 Produits les plus vendus</h2>
+                <div class="products-grid" id="topProductsGrid">
+                    <!-- Products will be loaded here -->
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="btn btn-primary" onclick="showSection('products')">
+                        <i class="fas fa-arrow-right"></i>
+                        Voir tous les produits
+                    </button>
+                </div>
+            </div>
         </section>
-        
-        <section id="productsContainer">
+
+        <!-- Products Section -->
+        <section id="products" class="section">
+            <h1 style="text-align: center; margin-bottom: 2rem;">🛍️ Tous les produits</h1>
+            
+            <!-- Search Results -->
             <div class="search-results" id="searchResults">
                 <div class="search-results-text" id="searchResultsText"></div>
                 <div class="search-results-count" id="searchResultsCount"></div>
             </div>
-
-            <div class="no-results" id="noResults">
-                <div class="no-results-icon">🔍</div>
-                <div class="no-results-title">Aucun produit ne correspond à votre recherche</div>
-                <div class="no-results-text">Essayez d'autres mots-clés ou parcourez nos catégories populaires.</div>
-                <button class="clear-search-btn">Effacer la recherche</button>
+            
+            <!-- Filters -->
+            <div class="filters">
+                <button class="filter-btn active" onclick="filterProducts('all')">
+                    <i class="fas fa-th"></i> Tous
+                </button>
+                <button class="filter-btn" onclick="filterProducts('canva')">
+                    <i class="fas fa-palette"></i> Modèles Canva
+                </button>
+                <button class="filter-btn" onclick="filterProducts('ebook')">
+                    <i class="fas fa-book"></i> E-books
+                </button>
+                <button class="filter-btn" onclick="filterProducts('formation')">
+                    <i class="fas fa-graduation-cap"></i> Formations
+                </button>
+                <button class="filter-btn" onclick="filterProducts('coaching')">
+                    <i class="fas fa-users"></i> Coaching
+                </button>
+                <button class="filter-btn" onclick="filterProducts('webdesign')">
+                    <i class="fas fa-code"></i> Web Design
+                </button>
             </div>
 
-            <div class="loading-spinner" id="loadingSpinner">
+            <!-- Loading -->
+            <div class="loading" id="productsLoading">
                 <div class="spinner"></div>
-                <p>Recherche en cours...</p>
             </div>
 
-            <div class="filters" id="filtersSection">
-                <button class="filter-btn top-seller" data-filter="top-seller">Top vente</button>
-                <button class="filter-btn" data-filter="all">Téléchargement numérique</button>
-                <button class="filter-btn" data-filter="madagascar">Pays : Madagascar</button>
-                <button class="filter-btn" data-filter="canva">Modèles Canva</button>
-                <button class="filter-btn" data-filter="ebook">E-books</button>
-                <button class="filter-btn" data-filter="formation">Formations vidéo</button>
-                <button class="filter-btn" data-filter="coaching">Coaching</button>
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here -->
             </div>
-
-            <div class="products-grid" id="productsGridSection">
-                </div>
         </section>
 
-        <section class="form-section" id="sellProductForm">
-            <h2 class="form-title">Proposer un nouveau produit ou service</h2>
-            <form id="productPublishForm">
-                <input type="hidden" id="editingProductId" value="">
-                <div class="form-group">
-                    <label for="productTitle">Titre du produit ou service :</label>
-                    <input type="text" id="productTitle" name="productTitle" required>
-                </div>
-                <div class="form-group">
-                    <label for="productCategory">Catégorie :</label>
-                    <select id="productCategory" name="productCategory" required>
-                        <option value="">Sélectionnez une catégorie</option>
-                        <option value="canva">Modèles Canva</option>
-                        <option value="ebook">E-books</option>
-                        <option value="formation">Formations vidéo</option>
-                        <option value="coaching">Coaching</option>
-                        <option value="webdesign">Web Design</option>
-                        <option value="logistique">Logistique</option>
-                        <option value="other">Autres</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="productDescription">Description :</label>
-                    <textarea id="productDescription" name="productDescription" rows="6" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="productFile">Image ou fichier à uploader (PDF, vidéo, zip, etc.) :</label>
-                    <input type="file" id="productFile" name="productFile" accept=".pdf,.zip,.mp4,.jpg,.png,.gif">
-                </div>
-                <div class="form-group">
-                    <label for="productPrice">Prix (MGA) :</label>
-                    <input type="number" id="productPrice" name="productPrice" step="100" min="0" required>
-                </div>
-                <div class="form-group">
-                    <label for="productPreview">Aperçu (URL ou fichier, optionnel) :</label>
-                    <input type="text" id="productPreview" name="productPreview" placeholder="URL de l'aperçu ou uploader un fichier">
-                    <input type="file" id="productPreviewFile" name="productPreviewFile" accept=".pdf,.mp4,.jpg,.png,.gif">
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="form-submit-btn">Soumettre le produit</button>
-                </div>
-            </form>
-        </section>
-
-        <section class="form-section" id="downloadForm">
-            <h2 class="form-title">Télécharger votre produit</h2>
-            <p style="text-align: center; margin-bottom: 20px; color: #666;">Veuillez remplir vos informations pour accéder au téléchargement.</p>
-            <form id="downloadInfoForm">
-                <div class="form-group">
-                    <label for="downloadName">Votre Nom :</label>
-                    <input type="text" id="downloadName" name="downloadName" required>
-                </div>
-                <div class="form-group">
-                    <label for="downloadEmail">Votre Email :</label>
-                    <input type="email" id="downloadEmail" name="downloadEmail" required>
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="form-submit-btn">Accéder au téléchargement</button>
-                </div>
-            </form>
-        </section>
-
-        <section class="product-detail-section" id="productDetail">
-            <h2 class="detail-title" id="detailProductTitle">Titre du Produit Détaillé</h2>
-            <div class="product-detail-content">
-                <div class="product-detail-image-container" id="detailProductImage">
-                    Aperçu du Produit
-                </div>
-                <div class="product-detail-info">
-                    <div class="detail-category" id="detailProductCategory">Catégorie</div>
-                    <p class="detail-seller">Vendu par : <span id="detailProductSeller">Nom du Vendeur</span></p>
-                    <div class="detail-price" id="detailProductPrice">0 MGA</div>
-                    <div class="detail-actions">
-                        <button class="download-btn" id="detailDownloadBtn" data-action="download">Télécharger</button>
-                        <button class="detail-like-btn" id="detailLikeBtn" data-action="like">❤️ <span id="likeCount">0</span></button>
+        <!-- Sell Section -->
+        <section id="sell" class="section">
+            <div class="form-section">
+                <h1 style="text-align: center; margin-bottom: 2rem;">💰 Vendre un produit</h1>
+                <form id="sellForm">
+                    <div class="form-group">
+                        <label for="productTitle">
+                            <i class="fas fa-tag"></i> Titre du produit
+                        </label>
+                        <input type="text" class="form-control" id="productTitle" placeholder="Ex: Pack 100 modèles Canva..." required>
                     </div>
-                    <p class="detail-description" id="detailProductDescription">Description complète du produit/service.</p>
-                </div>
-            </div>
-            <div class="comments-section">
-                <h4>Commentaires (<span id="commentCount">0</span>)</h4>
-                <div id="commentsList">
+                    <div class="form-group">
+                        <label for="productCategory">
+                            <i class="fas fa-folder"></i> Catégorie
+                        </label>
+                        <select class="form-control" id="productCategory" required>
+                            <option value="">Sélectionner une catégorie</option>
+                            <option value="canva">🎨 Modèles Canva</option>
+                            <option value="ebook">📚 E-books</option>
+                            <option value="formation">🎓 Formations vidéo</option>
+                            <option value="coaching">👥 Coaching</option>
+                            <option value="webdesign">💻 Web Design</option>
+                            <option value="other">📦 Autre</option>
+                        </select>
                     </div>
-                <div class="comment-form" data-action="comment">
-                    <h5>Laisser un commentaire :</h5>
-                    <textarea id="newCommentText" placeholder="Écrivez votre commentaire ici..."></textarea>
-                    <button id="submitCommentBtn">Soumettre</button>
-                </div>
+                    <div class="form-group">
+                        <label for="productDescription">
+                            <i class="fas fa-align-left"></i> Description
+                        </label>
+                        <textarea class="form-control" id="productDescription" placeholder="Décrivez votre produit en détail..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice">
+                            <i class="fas fa-dollar-sign"></i> Prix (MGA)
+                        </label>
+                        <input type="number" class="form-control" id="productPrice" min="0" placeholder="Ex: 25000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productImage">
+                            <i class="fas fa-image"></i> Image du produit
+                        </label>
+                        <input type="file" class="form-control" id="productImage" accept="image/*">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">
+                        <i class="fas fa-plus"></i>
+                        Publier le produit
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Other sections -->
+        <section id="formations" class="section">
+            <div style="text-align: center; padding: 4rem 0;">
+                <h1>🎓 Formations</h1>
+                <p style="color: var(--gray); margin: 1rem 0;">Cette section est en cours de développement...</p>
+                <button class="btn btn-primary" onclick="showSection('home')">
+                    <i class="fas fa-home"></i> Retour à l'accueil
+                </button>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <div style="text-align: center; padding: 4rem 0;">
+                <h1>🛠️ Services</h1>
+                <p style="color: var(--gray); margin: 1rem 0;">Cette section est en cours de développement...</p>
+                <button class="btn btn-primary" onclick="showSection('home')">
+                    <i class="fas fa-home"></i> Retour à l'accueil
+                </button>
+            </div>
+        </section>
+
+        <section id="blog" class="section">
+            <div style="text-align: center; padding: 4rem 0;">
+                <h1>📝 Blog</h1>
+                <p style="color: var(--gray); margin: 1rem 0;">Cette section est en cours de développement...</p>
+                <button class="btn btn-primary" onclick="showSection('home')">
+                    <i class="fas fa-home"></i> Retour à l'accueil
+                </button>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div style="text-align: center; padding: 4rem 0;">
+                <h1>📧 Contact</h1>
+                <p style="color: var(--gray); margin: 1rem 0;">Cette section est en cours de développement...</p>
+                <button class="btn btn-primary" onclick="showSection('home')">
+                    <i class="fas fa-home"></i> Retour à l'accueil
+                </button>
             </div>
         </section>
     </main>
-
-    <div id="authModal" class="auth-modal">
-        <div class="auth-modal-content">
-            <span class="close-btn">&times;</span>
-
-            <div id="loginForm">
-                <h2>Connexion</h2>
-                <form>
-                    <button type="button" class="google-btn">
-                        <img src="https://www.google.com/favicon.ico" alt="Google icon" width="20" height="20">
-                        Continuer avec Google
-                    </button>
-                    <div class="divider"></div>
-                    <div class="auth-form-group">
-                        <label for="loginEmail">Adresse email</label>
-                        <input type="email" id="loginEmail" placeholder="votre@email.com" required>
-                        <span class="input-icon">📧</span>
-                    </div>
-                    <div class="auth-form-group">
-                        <label for="loginPassword">Mot de passe</label>
-                        <input type="password" id="loginPassword" placeholder="••••••••" required>
-                        <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">👁️</button>
-                    </div>
-                    <div class="forgot-password">
-                        <a href="#" onclick="alert('Fonctionnalité à venir')">Mot de passe oublié ?</a>
-                    </div>
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="rememberMe">
-                        <label for="rememberMe">Se souvenir de moi</label>
-                    </div>
-                    <button type="submit" class="auth-submit-btn" data-action="login-submit">Se connecter</button>
-                    <div class="auth-form-toggle">
-                        <p>Pas encore de compte ? <a data-action="show-register">Créer un compte</a></p>
-                    </div>
-                </form>
+	 <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SmartDigitalPro</h3>
+                <p>Votre marketplace de référence pour les produits et services numériques à Madagascar. Rejoignez notre communauté de créateurs et d'entrepreneurs.</p>
+                <div class="social-icons">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
             </div>
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="#" onclick="showSection('home')">Accueil</a></li>
+                    <li><a href="#" onclick="showSection('products')">Produits</a></li>
+                    <li><a href="#" onclick="showSection('sell')">Vendre</a></li>
+                    <li><a href="#">Aide</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Contactez-nous</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Antananarivo, Madagascar</p>
+                <p><i class="fas fa-envelope"></i> contact@smartdigitalpro.mg</p>
+                <p><i class="fas fa-phone"></i> +261 32 12 345 67</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 SmartDigitalPro. Tous droits réservés. Fait avec ❤️ à Madagascar.</p>
+        </div>
+    </footer>
 
-            <div id="registerForm" style="display:none;">
-                <h2>Créer un compte</h2>
-                <form>
-                     <button type="button" class="google-btn">
-                        <img src="https://www.google.com/favicon.ico" alt="Google icon" width="20" height="20">
-                        S'inscrire avec Google
+    <!-- Auth Modal -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">🔐 Connexion</h3>
+                <button class="modal-close" onclick="closeAuthModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <!-- Login Form -->
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">
+                            <i class="fas fa-envelope"></i> Email
+                        </label>
+                        <input type="email" class="form-control" id="loginEmail" placeholder="votre@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">
+                            <i class="fas fa-lock"></i> Mot de passe
+                        </label>
+                        <input type="password" class="form-control" id="loginPassword" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.75rem;">
+                        <i class="fas fa-sign-in-alt"></i> Se connecter
                     </button>
-                    <div class="divider"></div>
-                    <div class="auth-form-group">
-                        <label for="registerFirstName">Prénom</label>
-                        <input type="text" id="registerFirstName" placeholder="Votre prénom" required>
-                        <span class="input-icon">👤</span>
-                    </div>
-                    <div class="auth-form-group">
-                        <label for="registerLastName">Nom</label>
-                        <input type="text" id="registerLastName" placeholder="Votre nom" required>
-                        <span class="input-icon">👤</span>
-                    </div>
-                    <div class="auth-form-group">
-                        <label for="registerEmail">Adresse email</label>
-                        <input type="email" id="registerEmail" placeholder="votre@email.com" required>
-                        <span class="input-icon">📧</span>
-                    </div>
-                    <div class="auth-form-group">
-                        <label for="registerPhone">Téléphone (optionnel)</label>
-                        <input type="tel" id="registerPhone" placeholder="+261 32 00 000 00">
-                        <span class="input-icon">📱</span>
-                    </div>
-                    <div class="auth-form-group">
-                        <label for="registerPassword">Mot de passe</label>
-                        <input type="password" id="registerPassword" placeholder="••••••••" required>
-                        <button type="button" class="password-toggle" onclick="togglePassword('registerPassword')">👁️</button>
-                    </div>
-                    <div class="auth-form-group">
-                        <label for="confirmPassword">Confirmer le mot de passe</label>
-                        <input type="password" id="confirmPassword" placeholder="••••••••" required>
-                        <button type="button" class="password-toggle" onclick="togglePassword('confirmPassword')">👁️</button>
-                    </div>
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="acceptTerms" required>
-                        <label for="acceptTerms">J'accepte les <a href="#" style="color: #059669;">conditions d'utilisation</a> et la <a href="#" style="color: #059669;">politique de confidentialité</a></label>
-                    </div>
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="newsletter">
-                        <label for="newsletter">Je souhaite recevoir les newsletters et offres spéciales</label>
-                    </div>
-                    <button type="submit" class="auth-submit-btn" data-action="register-submit">Créer mon compte</button>
-                    <div class="auth-form-toggle">
-                        <p>Déjà un compte ? <a data-action="show-login">Se connecter</a></p>
-                    </div>
                 </form>
+
+                <!-- Register Form -->
+                <form id="registerForm" style="display: none;">
+                    <div class="form-group">
+                        <label for="registerName">
+                            <i class="fas fa-user"></i> Nom complet
+                        </label>
+                        <input type="text" class="form-control" id="registerName" placeholder="Jean Dupont" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">
+                            <i class="fas fa-envelope"></i> Email
+                        </label>
+                        <input type="email" class="form-control" id="registerEmail" placeholder="votre@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">
+                            <i class="fas fa-lock"></i> Mot de passe
+                        </label>
+                        <input type="password" class="form-control" id="registerPassword" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerConfirmPassword">
+                            <i class="fas fa-lock"></i> Confirmer le mot de passe
+                        </label>
+                        <input type="password" class="form-control" id="registerConfirmPassword" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.75rem;">
+                        <i class="fas fa-user-plus"></i> S'inscrire
+                    </button>
+                </form>
+
+                <div style="text-align: center; margin-top: 1rem;">
+                    <a href="#" id="authToggle" onclick="toggleAuthForm()" style="color: var(--primary); text-decoration: none;">
+                        Pas de compte ? S'inscrire
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer avec Newsletter intégrée - Affiché seulement sur la page d'accueil -->
-    <footer class="footer" id="mainFooter" style="display: none;">
-        <!-- Section Newsletter en haut du footer -->
-        <section class="newsletter-section">
-            <div class="newsletter-container">
-                <h2 class="newsletter-title">Rejoignez notre Newsletter</h2>
-                <p class="newsletter-subtitle">Recevez les dernières offres et astuces en marketing digital directement dans votre boîte de réception.</p>
-                <form class="newsletter-form">
-                    <input type="email" class="newsletter-input" placeholder="Votre adresse email" required>
-                    <button type="submit" class="newsletter-btn">S'abonner</button>
-                </form>
-            </div>
-        </section>
-
-        <!-- Contenu principal du footer -->
-        <div class="footer-container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>SmartDigitalPro</h3>
-                    <p>Votre plateforme de référence pour les produits et services numériques à Madagascar. Boostez votre business avec nos solutions innovantes.</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon facebook">📘</a>
-                        <a href="#" class="social-icon instagram">📷</a>
-                        <a href="#" class="social-icon linkedin">💼</a>
-                        <a href="#" class="social-icon youtube">📺</a>
-                    </div>
-                </div>
-                <div class="footer-section">
-                    <h3>Liens Rapides</h3>
-                    <ul>
-                        <li><a data-section="home">Accueil</a></li>
-                        <li><a data-section="products">Produits</a></li>
-                        <li><a data-section="formations">Formations</a></li>
-                        <li><a data-section="services">Services</a></li>
-                        <li><a data-section="blog">Blog</a></li>
-                        <li><a href="#" onclick="document.querySelector('.newsletter-input').focus()">S'abonner</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Support</h3>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Contactez-nous</a></li>
-                        <li><a href="#">Politique de Confidentialité</a></li>
-                        <li><a href="#">Conditions Générales</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Antananarivo, Madagascar</p>
-                    <p>Email: contact@smartdigitalpro.mg</p>
-                    <p>Téléphone: +261 32 12 345 67</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                &copy; 2024 SmartDigitalPro. Tous droits réservés. Fait avec <span class="heart">❤️</span> à Madagascar.
+    <!-- Quick View Modal -->
+    <div id="quickView" class="quick-view">
+        <div class="quick-view-content">
+            <button class="quick-view-close" onclick="closeQuickView()">×</button>
+            <div id="quickViewContent">
+                <!-- Product details will be loaded here -->
             </div>
         </div>
-    </footer>
+    </div>
 
-    <script type="module">
-        // --- AUTHENTIFICATION SIMULÉE ---
-        let authState = {
-            isLoggedIn: false,
-            currentUser: null
-        };
-        
-        const users = [
-            { id: 'user1', name: 'Jean Dupont', email: 'jean@test.com', password: 'password123' }
-        ];
-
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <div id="notificationMessage"></div>
+    </div>
+	
+	<script>
+        // Global state
+        let currentUser = null;
+        let cart = [];
         let products = [
             {
-                id: 'product1',
-                creatorId: 'user1',
-                title: '100 modèles Canva pour les réseaux sociaux',
-                category: 'Modèles Canva',
-                categorySlug: 'canva',
-                description: 'Un pack complet de 100 modèles Canva professionnels et personnalisables pour dynamiser votre présence sur les réseaux sociaux. Idéal pour Instagram, Facebook, et plus encore. Gagnez du temps et créez du contenu percutant en quelques clics.',
-                image: 'https://raw.githubusercontent.com/balisama21/plateforme/main/canva.jpg',
+                id: 1,
+                title: "Pack 100 Modèles Canva Pro",
+                category: "canva",
+                description: "Collection complète de modèles Canva professionnels pour réseaux sociaux, présentations, et marketing. Économisez des heures de design avec ces templates prêts à utiliser.",
                 price: 25000,
-                oldPrice: 35000,
-                discount: 29,
-                seller: 'Jean Dupont',
-                likes: 1250,
-                isTopSeller: true,
-                comments: [
-                    { author: 'Utilisateur Alpha', text: 'Super produit, très utile pour ma stratégie marketing !' },
-                    { author: 'Designer Pro', text: 'Les modèles sont très bien conçus et faciles à modifier. Je recommande !' }
-                ]
+                image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400",
+                seller: "Design Pro Studio",
+                rating: 4.8,
+                likes: 156,
+                isTopSeller: true
             },
             {
-                id: 'product2',
-                creatorId: 'user2',
-                title: 'E-book : Les fondamentaux du Marketing Digital',
-                category: 'E-books',
-                categorySlug: 'ebook',
-                description: 'Découvrez les bases essentielles du marketing digital avec cet e-book complet. Apprenez le SEO, le SEM, le marketing de contenu, les réseaux sociaux et bien plus encore pour propulser votre activité en ligne.',
-                image: 'https://raw.githubusercontent.com/balisama21/plateforme/main/ebook.jpg',
+                id: 2,
+                title: "Formation Marketing Digital Complète",
+                category: "formation",
+                description: "Apprenez le marketing digital de A à Z avec cette formation complète : SEO, Google Ads, Facebook Ads, Email Marketing et bien plus.",
+                price: 75000,
+                image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400",
+                seller: "Expert Marketing Madagascar",
+                rating: 4.9,
+                likes: 243,
+                isTopSeller: true
+            },
+            {
+                id: 3,
+                title: "E-book: Stratégies SEO 2024",
+                category: "ebook",
+                description: "Guide complet pour maîtriser le SEO en 2024. Techniques avancées, outils recommandés et stratégies éprouvées pour ranker en première page.",
                 price: 15000,
-                oldPrice: null,
-                discount: null,
-                seller: 'DigitalExpert',
-                likes: 800,
-                isTopSeller: false,
-                comments: [
-                    { author: 'Lecteur Curieux', text: 'Très instructif, j\'ai appris beaucoup de choses.' },
-                    { author: 'Entrepreneur Débutant', text: 'Une excellente ressource pour commencer en marketing digital.' }
-                ]
+                image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400",
+                seller: "SEO Expert Madagascar",
+                rating: 4.7,
+                likes: 89,
+                isTopSeller: false
             },
             {
-                id: 'product3',
-                creatorId: 'user3',
-                title: 'Formation complète Adobe Premiere Pro (Débutant)',
-                category: 'Formations Vidéo',
-                categorySlug: 'formation',
-                description: 'Maîtrisez Adobe Premiere Pro du débutant à un niveau intermédiaire avec cette formation vidéo détaillée. Apprenez le montage, l\'étalonnage, l\'ajout d\'effets et l\'exportation de vos projets pour des vidéos de qualité professionnelle.',
-                image: 'https://raw.githubusercontent.com/balisama21/plateforme/main/formation.jpg',
+                id: 4,
+                title: "Coaching Business Personnel (1h)",
+                category: "coaching",
+                description: "Séance de coaching personnalisé d'une heure pour développer votre business. Analyse de votre situation, conseils stratégiques et plan d'action.",
                 price: 50000,
-                oldPrice: 70000,
-                discount: 28,
-                seller: 'VideoMaestro',
-                likes: 2100,
-                isTopSeller: true,
-                comments: [
-                    { author: 'Monteur Junior', text: 'La formation est très claire et les exercices pratiques sont super !' },
-                    { author: 'Apprenti Vidéaste', text: 'J\'ai enfin compris comment utiliser Premiere Pro, merci !' }
-                ]
+                image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400",
+                seller: "Business Coach Professionnel",
+                rating: 5.0,
+                likes: 67,
+                isTopSeller: false
             },
             {
-                id: 'product4',
-                creatorId: 'user4',
-                title: 'Calendrier Éditorial 2024 pour Réseaux Sociaux',
-                category: 'Outils',
-                categorySlug: 'outils',
-                description: 'Organisez votre contenu sur les réseaux sociaux avec notre calendrier éditorial pré-rempli pour 2024. Planifiez vos publications, suivez vos performances et optimisez votre stratégie de contenu tout au long de l\'année.',
-                image: 'https://raw.githubusercontent.com/balisama21/plateforme/main/calendar.jpg',
-                price: 10000,
-                oldPrice: null,
-                discount: null,
-                seller: 'ContentStrategist',
-                likes: 450,
-                isTopSeller: false,
-                comments: [
-                    { author: 'Community Manager', text: 'Indispensable pour la gestion de mes réseaux sociaux.' }
-                ]
-            },
-            {
-                id: 'product5',
-                creatorId: 'user1',
-                title: 'Séance de Coaching Marketing Personnalisé 1H',
-                category: 'Coaching',
-                categorySlug: 'coaching',
-                description: 'Bénéficiez d\'une séance de coaching personnalisée d\'une heure pour discuter de votre stratégie marketing, résoudre vos défis spécifiques et obtenir des conseils d\'experts adaptés à votre entreprise.',
-                image: 'https://raw.githubusercontent.com/balisama21/plateforme/main/coaching.jpg',
-                price: 80000,
-                oldPrice: null,
-                discount: null,
-                seller: 'Jean Dupont',
-                likes: 320,
-                isTopSeller: false,
-                comments: [
-                    { author: 'Client Satisfait', text: 'La séance a été très enrichissante et m\'a donné une nouvelle perspective.' }
-                ]
-            },
-            {
-                id: 'product6',
-                creatorId: 'user2',
-                title: '50 Modèles de Site Web Responsive (HTML/CSS)',
-                category: 'Web Design',
-                categorySlug: 'webdesign',
-                description: 'Un ensemble de 50 modèles de sites web modernes et entièrement responsives, conçus avec HTML et CSS. Parfait pour les développeurs ou les agences souhaitant démarrer rapidement des projets professionnels.',
-                image: 'https://placehold.co/600x400/98d698/ffffff?text=Modèles+Web',
+                id: 5,
+                title: "Template Site Web E-commerce",
+                category: "webdesign",
+                description: "Template moderne et responsive pour site e-commerce. Inclut toutes les pages nécessaires, design mobile-friendly et code optimisé.",
                 price: 30000,
-                oldPrice: null,
-                discount: null,
-                seller: 'WebCrafters Mada',
-                likes: 750,
-                isTopSeller: false,
-                comments: [
-                    { author: 'Développeur Junior', text: 'Ces modèles sont un gain de temps incroyable. Très adaptables !' }
-                ]
+                image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400",
+                seller: "WebDesign Madagascar",
+                rating: 4.6,
+                likes: 134,
+                isTopSeller: true
             },
             {
-                id: 'product7',
-                creatorId: 'user3',
-                title: 'Outil de Gestion de Stock Simple pour PME',
-                category: 'Outils',
-                categorySlug: 'logistique',
-                description: 'Un outil intuitif basé sur Excel (ou Google Sheets) pour les petites et moyennes entreprises. Suivez votre inventaire, gérez les entrées/sorties et optimisez vos stocks facilement.',
-                image: 'https://placehold.co/600x400/add8e6/000000?text=Outil+Logistique',
-                price: 20000,
-                oldPrice: null,
-                discount: null,
-                seller: 'SolutionsEntreprise',
-                likes: 300,
-                isTopSeller: false,
-                comments: [
-                    { author: 'Gérant PME', text: 'Très pratique pour nos besoins basiques. Facile à prendre en main.' }
-                ]
+                id: 6,
+                title: "Calendrier Éditorial Réseaux Sociaux",
+                category: "canva",
+                description: "Planifiez votre contenu pour toute l'année avec ce calendrier éditorial complet. Inclut idées de posts, hashtags et templates Canva.",
+                price: 12000,
+                image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400",
+                seller: "Social Media Expert",
+                rating: 4.5,
+                likes: 92,
+                isTopSeller: false
+            },
+            {
+                id: 7,
+                title: "Formation WordPress Débutant",
+                category: "formation",
+                description: "Apprenez à créer votre site WordPress de A à Z. Formation pratique avec exercices, support inclus et certificat de completion.",
+                price: 45000,
+                image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400",
+                seller: "WordPress Madagascar",
+                rating: 4.4,
+                likes: 78,
+                isTopSeller: false
+            },
+            {
+                id: 8,
+                title: "Pack Logos & Identité Visuelle",
+                category: "webdesign",
+                description: "Collection de 50 logos modernes + guidelines d'identité visuelle. Formats vectoriels inclus, parfait pour startups et PME.",
+                price: 35000,
+                image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400",
+                seller: "Creative Studio Mada",
+                rating: 4.7,
+                likes: 123,
+                isTopSeller: true
             }
         ];
 
-        let currentProductId = null;
+        // Authentication functions
+        function showAuthModal(type) {
+            const modal = document.getElementById('authModal');
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+            const modalTitle = document.getElementById('modalTitle');
+            const authToggle = document.getElementById('authToggle');
 
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const mobileNav = document.querySelector('.mobile-nav');
-        const searchInput = document.getElementById('searchInput');
-        const searchBtn = document.querySelector('.search-btn');
-        const clearSearchBtn = document.querySelector('.clear-search-btn');
-        const productsGrid = document.getElementById('productsGridSection');
-        const filtersSection = document.getElementById('filtersSection');
-        const allSections = document.querySelectorAll('.main > section');
-        const authModal = document.getElementById('authModal');
-        const loginForm = document.getElementById('loginForm');
-        const registerForm = document.getElementById('registerForm');
-        const mainFooter = document.getElementById('mainFooter');
-
-        // --- FUNCTIONS ---
-
-        function toggleMobileMenu() {
-            mobileMenu.classList.toggle('active');
-            mobileNav.classList.toggle('active');
-        }
-
-        function showSection(sectionId) {
-            allSections.forEach(section => section.classList.remove('active'));
-            const sectionToShow = document.getElementById(sectionId);
-            if (sectionToShow) sectionToShow.classList.add('active');
-
-            const productsContainer = document.getElementById('productsContainer');
-            const homeSection = document.getElementById('home');
-            
-            // Gestion de l'affichage du footer : seulement sur la page d'accueil
-            if (sectionId === 'home' || sectionId === 'products') {
-                if (sectionId === 'home') homeSection.classList.add('active');
-                productsContainer.classList.add('active');
-                filtersSection.classList.add('active');
-                productsGrid.classList.add('active');
-                mainFooter.style.display = 'block'; // Afficher le footer sur l'accueil
-                resetSearch();
-            } else {
-                productsContainer.classList.remove('active');
-                homeSection.classList.remove('active');
-                mainFooter.style.display = 'none'; // Masquer le footer sur les autres pages
-            }
-
-            document.querySelectorAll('.nav-link, .mobile-nav-link').forEach(link => {
-                link.classList.toggle('active', link.dataset.section === sectionId);
-            });
-            
-            if (mobileNav.classList.contains('active')) toggleMobileMenu();
-            window.scrollTo(0, 0);
-        }
-
-        function renderProductsGrid(productsToRender = products) {
-            productsGrid.innerHTML = ''; 
-
-            productsToRender.forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.classList.add('product-card');
-                productCard.dataset.id = product.id;
-                productCard.dataset.category = product.categorySlug;
-                productCard.dataset.isTopSeller = product.isTopSeller;
-                productCard.dataset.keywords = `${product.title.toLowerCase()} ${product.category.toLowerCase()} ${product.seller.toLowerCase()}`;
-
-                let badgeHtml = '';
-                if (product.badge) { 
-                    const badgeClass = product.badge === 'Nouveau' ? 'new-badge' : '';
-                    badgeHtml = `<div class="product-badge ${badgeClass}">${product.badge}</div>`;
-                } else if (product.discount) {
-                    badgeHtml = `<div class="product-badge discount-badge">-${product.discount}%</div>`; 
-                }
-                
-                const oldPriceHtml = product.oldPrice ? `<span class="old-price">${product.oldPrice.toLocaleString('fr-MG')} MGA</span>` : '';
-                
-                let ownerActionsHtml = '';
-                if (authState.isLoggedIn && authState.currentUser.id === product.creatorId) {
-                    ownerActionsHtml = `
-                        <div class="product-owner-actions">
-                            <button class="edit-btn" data-action="edit">Modifier</button>
-                            <button class="delete-btn" data-action="delete">Supprimer</button>
-                        </div>
-                    `;
-                }
-
-                productCard.innerHTML = `
-                    <div class="product-image ${product.categorySlug}">
-                        <img src="${product.image}" alt="${product.title}" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/333333?text=Image+non+disponible';">
-                        ${badgeHtml}
-                    </div>
-                    <div class="product-info">
-                        <div class="product-category">${product.category}</div>
-                        <h3 class="product-title">${product.title}</h3>
-                        <div class="product-rating">
-                            <div class="stars">${'★'.repeat(Math.min(5, Math.round(product.likes / 500)) || 1)}</div>
-                            <span class="rating-count">(${product.likes.toLocaleString('fr-MG')})</span>
-                        </div>
-                        <div class="product-price">
-                            ${product.price.toLocaleString('fr-MG')} MGA
-                            ${oldPriceHtml}
-                        </div>
-                        <div class="product-actions">
-                            <button class="download-btn" data-action="download">Télécharger</button>
-                            <button class="preview-btn" data-action="preview">Aperçu</button>
-                        </div>
-                        ${ownerActionsHtml} 
-                    </div>
-                `;
-                productsGrid.appendChild(productCard);
-            });
-        }
-        
-        function updateAuthUI() {
-            const authLinks = document.getElementById('auth-links');
-            const userProfile = document.getElementById('user-profile');
-            const usernameDisplay = document.getElementById('username-display');
-            
-            if (!authLinks || !userProfile || !usernameDisplay) return;
-            
-            if (authState.isLoggedIn && authState.currentUser) {
-                // Afficher le profil utilisateur, masquer les liens d'auth
-                authLinks.style.display = 'none';
-                userProfile.style.display = 'block';
-                usernameDisplay.textContent = authState.currentUser.name;
-                
-                // Mettre à jour les informations du dropdown
-                const userDropdownName = document.getElementById('userDropdownName');
-                const userDropdownEmail = document.getElementById('userDropdownEmail');
-                if (userDropdownName) userDropdownName.textContent = authState.currentUser.name;
-                if (userDropdownEmail) userDropdownEmail.textContent = authState.currentUser.email;
-                
-                // Configurer le bouton menu utilisateur
-                const userMenuBtn = document.getElementById('userMenuBtn');
-                const userDropdown = document.getElementById('userDropdown');
-                
-                if (userMenuBtn && userDropdown) {
-                    // Supprimer les anciens event listeners
-                    userMenuBtn.onclick = null;
-                    
-                    // Nouveau event listener
-                    userMenuBtn.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        userDropdown.classList.toggle('active');
-                    });
-                }
-                
-            } else {
-                // Afficher les liens d'auth, masquer le profil
-                authLinks.style.display = 'block';
-                userProfile.style.display = 'none';
-                usernameDisplay.textContent = '';
-                
-                // S'assurer que le dropdown est fermé
-                const userDropdown = document.getElementById('userDropdown');
-                if (userDropdown) {
-                    userDropdown.classList.remove('active');
-                }
-            }
-            
-            renderProductsGrid();
-        }
-
-        function showAuthModal(formToShow = 'login') {
-            if (formToShow === 'login') {
+            if (type === 'login') {
                 loginForm.style.display = 'block';
                 registerForm.style.display = 'none';
+                modalTitle.innerHTML = '🔐 Connexion';
+                authToggle.textContent = "Pas de compte ? S'inscrire";
             } else {
                 loginForm.style.display = 'none';
                 registerForm.style.display = 'block';
+                modalTitle.innerHTML = '👤 Inscription';
+                authToggle.textContent = 'Déjà un compte ? Se connecter';
             }
-            authModal.style.display = 'block';
+
+            modal.style.display = 'block';
         }
-        
+
         function closeAuthModal() {
-            authModal.style.display = 'none';
+            document.getElementById('authModal').style.display = 'none';
         }
-        
-        function handleLogin(email, password) {
-            const user = users.find(u => u.email === email && u.password === password);
-            if (user) {
-                authState.isLoggedIn = true;
-                authState.currentUser = user;
-                alert(`Bienvenue ${user.name} !`);
-                closeAuthModal();
-                updateAuthUI();
+
+        function toggleAuthForm() {
+            const loginForm = document.getElementById('loginForm');
+            const registerForm = document.getElementById('registerForm');
+
+            if (loginForm.style.display === 'none') {
+                showAuthModal('login');
             } else {
-                alert('Email ou mot de passe incorrect.');
+                showAuthModal('register');
             }
         }
-        
-        function handleRegister(firstName, lastName, email, phone, password, confirmPassword) {
-            if (password !== confirmPassword) {
-                alert('Les mots de passe ne correspondent pas.');
-                return;
-            }
-            if (users.find(u => u.email === email)) {
-                alert('Cet email est déjà utilisé.');
-                return;
-            }
-            const fullName = `${firstName} ${lastName}`;
-            const newUser = { id: 'user' + (users.length + 1), name: fullName, email, phone, password };
-            users.push(newUser);
-            authState.isLoggedIn = true;
-            authState.currentUser = newUser;
-            alert(`Inscription réussie ! Bienvenue ${fullName}.`);
+
+        function login(email, password) {
+            // Simulation d'authentification
+            currentUser = {
+                id: 1,
+                name: "Utilisateur Test",
+                email: email
+            };
+
+            updateAuthUI();
             closeAuthModal();
-            updateAuthUI();
+            showNotification('🎉 Connexion réussie ! Bienvenue sur SmartDigitalPro', 'success');
         }
 
-        // Fonction pour toggle la visibilité du mot de passe
-        function togglePassword(inputId) {
-            const input = document.getElementById(inputId);
-            const button = input.nextElementSibling;
-            if (input.type === 'password') {
-                input.type = 'text';
-                button.textContent = '🙈';
-            } else {
-                input.type = 'password';
-                button.textContent = '👁️';
-            }
+        function register(name, email, password) {
+            // Simulation d'inscription
+            currentUser = {
+                id: Date.now(),
+                name: name,
+                email: email
+            };
+
+            updateAuthUI();
+            closeAuthModal();
+            showNotification('🎉 Inscription réussie ! Bienvenue dans notre communauté', 'success');
         }
 
-        // Rendre la fonction globale pour l'onclick
-        window.togglePassword = togglePassword;
-
-        function handleLogout() {
-            authState.isLoggedIn = false;
-            authState.currentUser = null;
-            alert('Vous avez été déconnecté.');
+        function logout() {
+            currentUser = null;
             updateAuthUI();
+            showNotification('👋 Déconnexion réussie. À bientôt !', 'success');
             showSection('home');
         }
-        
-        function requireAuth(callback) {
-            if (authState.isLoggedIn) {
-                callback();
+
+        function updateAuthUI() {
+            const authButtons = document.getElementById('authButtons');
+            const userMenu = document.getElementById('userMenu');
+            const userName = document.getElementById('userName');
+
+            if (currentUser) {
+                authButtons.style.display = 'none';
+                userMenu.style.display = 'block';
+                userName.textContent = currentUser.name.split(' ')[0]; // Prénom seulement
             } else {
-                alert("Vous devez être connecté pour effectuer cette action.");
-                showAuthModal('login');
+                authButtons.style.display = 'flex';
+                userMenu.style.display = 'none';
             }
+        }
+
+        function toggleUserDropdown() {
+            const dropdown = document.getElementById('userDropdown');
+            dropdown.classList.toggle('active');
+        }
+		
+		  // Navigation functions
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show target section
+            document.getElementById(sectionId).classList.add('active');
+
+            // Update navigation
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            // Find and activate corresponding nav link
+            const activeLink = document.querySelector(`[onclick="showSection('${sectionId}')"]`);
+            if (activeLink && activeLink.classList.contains('nav-link')) {
+                activeLink.classList.add('active');
+            }
+
+            // Load section-specific content
+            if (sectionId === 'home') {
+                loadTopProducts();
+            } else if (sectionId === 'products') {
+                loadProducts();
+            } else if (sectionId === 'sell' && !currentUser) {
+                showNotification('🔒 Veuillez vous connecter pour vendre un produit', 'error');
+                showAuthModal('login');
+                showSection('home');
+                return;
+            }
+
+            // Close user dropdown if open
+            document.getElementById('userDropdown').classList.remove('active');
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Product functions
+        function loadProducts() {
+            const grid = document.getElementById('productsGrid');
+            const loading = document.getElementById('productsLoading');
+
+            loading.style.display = 'flex';
+            grid.innerHTML = '';
+
+            setTimeout(() => {
+                loading.style.display = 'none';
+                renderProducts(products, grid);
+            }, 800);
+        }
+
+        function loadTopProducts() {
+            const grid = document.getElementById('topProductsGrid');
+            const topProducts = products.filter(p => p.isTopSeller).slice(0, 3);
+            renderProducts(topProducts, grid);
+        }
+
+        function renderProducts(productList, container) {
+            container.innerHTML = '';
+
+            productList.forEach(product => {
+                const productCard = createProductCard(product);
+                container.appendChild(productCard);
+            });
+        }
+
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.onclick = () => showQuickView(product.id);
+
+            const badgeHtml = product.isTopSeller ? '<div class="product-badge top-seller">🔥 Top vente</div>' : '';
+
+            card.innerHTML = `
+                <div class="product-image">
+                    <img src="${product.image}" alt="${product.title}" style="width: 100%; height: 100%; object-fit: cover;">
+                    ${badgeHtml}
+                </div>
+                <div class="product-info">
+                    <div class="product-category">${getCategoryName(product.category)}</div>
+                    <h3 class="product-title">${product.title}</h3>
+                    <div class="product-seller">Par ${product.seller}</div>
+                    <div class="product-rating">
+                        <div class="stars">${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5-Math.floor(product.rating))}</div>
+                        <span class="rating-count">(${product.likes})</span>
+                    </div>
+                    <div class="product-price">${product.price.toLocaleString()} MGA</div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary btn-small" onclick="addToCart(${product.id}); event.stopPropagation();">
+                            <i class="fas fa-cart-plus"></i> Ajouter
+                        </button>
+                        <button class="btn btn-small" onclick="showQuickView(${product.id}); event.stopPropagation();">
+                            <i class="fas fa-eye"></i> Voir
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        function getCategoryName(category) {
+            const categories = {
+                'canva': '🎨 Modèles Canva',
+                'ebook': '📚 E-books',
+                'formation': '🎓 Formations',
+                'coaching': '👥 Coaching',
+                'webdesign': '💻 Web Design'
+            };
+            return categories[category] || category;
+        }
+
+        function filterProducts(category) {
+            const grid = document.getElementById('productsGrid');
+            const filterBtns = document.querySelectorAll('.filter-btn');
+
+            // Update active filter button
+            filterBtns.forEach(btn => btn.classList.remove('active'));
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+
+            // Filter products
+            let filteredProducts = category === 'all' ? products : products.filter(p => p.category === category);
+            
+            renderProducts(filteredProducts, grid);
+
+            // Clear search results
+            document.getElementById('searchResults').classList.remove('active');
         }
 
         function performSearch() {
-            const searchTerm = searchInput.value.toLowerCase().trim();
-            const searchResultsDiv = document.getElementById('searchResults');
-            const searchResultsText = document.getElementById('searchResultsText');
-            const searchResultsCount = document.getElementById('searchResultsCount');
-            const noResultsDiv = document.getElementById('noResults');
-            const loadingSpinner = document.getElementById('loadingSpinner');
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            if (!searchTerm.trim()) return;
 
-            loadingSpinner.style.display = 'block';
-            productsGrid.classList.remove('active');
-            searchResultsDiv.classList.remove('active');
-            noResultsDiv.classList.remove('active');
+            const filteredProducts = products.filter(product => 
+                product.title.toLowerCase().includes(searchTerm) ||
+                product.description.toLowerCase().includes(searchTerm) ||
+                product.category.toLowerCase().includes(searchTerm) ||
+                product.seller.toLowerCase().includes(searchTerm)
+            );
 
-            setTimeout(() => { 
-                loadingSpinner.style.display = 'none';
-                productsGrid.classList.add('active');
-
-                const filteredProducts = products.filter(p => {
-                    const keywords = `${p.title.toLowerCase()} ${p.category.toLowerCase()} ${p.seller.toLowerCase()}`;
-                    return keywords.includes(searchTerm);
-                });
-
-                renderProductsGrid(filteredProducts);
-                
-                if (searchTerm !== '') {
-                    if (filteredProducts.length > 0) {
-                        searchResultsDiv.classList.add('active');
-                        searchResultsText.innerText = `Résultats de recherche pour "${searchTerm}"`;
-                        searchResultsCount.innerText = `${filteredProducts.length} produit(s) trouvé(s).`;
-                        noResultsDiv.classList.remove('active');
-                    } else {
-                        noResultsDiv.classList.add('active');
-                        searchResultsDiv.classList.remove('active');
-                    }
-                } else {
-                    resetSearch();
-                }
-            }, 500);
-        }
-
-        function resetSearch() {
-            searchInput.value = '';
-            document.getElementById('searchResults').classList.remove('active');
-            document.getElementById('noResults').classList.remove('active');
-            filterProducts('all');
-        }
-
-        function filterProducts(filter) {
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            filterBtns.forEach(btn => btn.classList.remove('active'));
-            document.querySelector(`.filter-btn[data-filter="${filter}"]`).classList.add('active');
+            showSection('products');
             
-            let filteredProducts;
-            if (filter === 'all') {
-                filteredProducts = products;
-            } else if (filter === 'top-seller') {
-                filteredProducts = products.filter(p => p.isTopSeller);
+            // Show search results
+            if (filteredProducts.length > 0) {
+                const searchResults = document.getElementById('searchResults');
+                const searchResultsText = document.getElementById('searchResultsText');
+                const searchResultsCount = document.getElementById('searchResultsCount');
+                
+                searchResultsText.textContent = `Résultats pour "${searchTerm}"`;
+                searchResultsCount.textContent = `${filteredProducts.length} produit(s) trouvé(s)`;
+                searchResults.classList.add('active');
+                
+                renderProducts(filteredProducts, document.getElementById('productsGrid'));
             } else {
-                filteredProducts = products.filter(p => p.categorySlug === filter);
+                showNotification('🔍 Aucun produit trouvé pour votre recherche', 'error');
+                renderProducts(products, document.getElementById('productsGrid'));
             }
-            renderProductsGrid(filteredProducts);
-
-            document.getElementById('searchResults').classList.remove('active');
-            document.getElementById('noResults').classList.remove('active');
-            searchInput.value = '';
         }
 
-        function showProductDetail(productId) {
+        // Quick view functions
+        function showQuickView(productId) {
             const product = products.find(p => p.id === productId);
             if (!product) return;
 
-            currentProductId = productId;
+            const quickView = document.getElementById('quickView');
+            const content = document.getElementById('quickViewContent');
 
-            document.getElementById('detailProductTitle').innerText = product.title;
-            document.getElementById('detailProductCategory').innerText = product.category;
-            document.getElementById('detailProductSeller').innerText = product.seller;
-            document.getElementById('detailProductPrice').innerText = `${product.price.toLocaleString('fr-MG')} MGA`;
-            document.getElementById('detailProductDescription').innerText = product.description;
-            document.getElementById('likeCount').innerText = product.likes.toLocaleString();
+            content.innerHTML = `
+                <div style="padding: 2rem;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                        <div>
+                            <img src="${product.image}" alt="${product.title}" 
+                                 style="width: 100%; height: 300px; object-fit: cover; border-radius: var(--radius);">
+                        </div>
+                        <div>
+                            <div style="color: var(--primary); font-size: 0.875rem; font-weight: 500; margin-bottom: 0.5rem;">
+                                ${getCategoryName(product.category)}
+                            </div>
+                            <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem;">${product.title}</h2>
+                            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
+                                <div style="color: var(--warning);">${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5-Math.floor(product.rating))}</div>
+                                <span style="color: var(--gray);">(${product.likes} avis)</span>
+                            </div>
+                            <div style="font-size: 1.75rem; font-weight: 700; color: var(--primary); margin-bottom: 1rem;">
+                                ${product.price.toLocaleString()} MGA
+                            </div>
+                            <div style="margin-bottom: 1.5rem;">
+                                <p><strong>📦 Vendeur:</strong> ${product.seller}</p>
+                            </div>
+                            <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem;">
+                                <button class="btn btn-primary" onclick="addToCart(${product.id}); closeQuickView();" style="flex: 1;">
+                                    <i class="fas fa-cart-plus"></i> Ajouter au panier
+                                </button>
+                                <button class="btn" onclick="likeProduct(${product.id})" style="padding: 0.75rem;">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="margin-bottom: 1rem;">📄 Description</h3>
+                        <p style="line-height: 1.6; color: var(--gray);">${product.description}</p>
+                    </div>
+                </div>
+            `;
 
-            const detailImageContainer = document.getElementById('detailProductImage');
-            detailImageContainer.innerHTML = `<img src="${product.image}" alt="${product.title}">`;
-
-            renderCommentsForProduct(product);
-            showSection('productDetail');
+            quickView.style.display = 'flex';
         }
 
-        function renderCommentsForProduct(product) {
-            const commentsList = document.getElementById('commentsList');
-            commentsList.innerHTML = '';
-            if (product.comments && product.comments.length > 0) {
-                product.comments.forEach(comment => {
-                    const commentItem = document.createElement('div');
-                    commentItem.classList.add('comment-item');
-                    commentItem.innerHTML = `<p class="comment-author">${comment.author}</p><p class="comment-text">${comment.text}</p>`;
-                    commentsList.appendChild(commentItem);
-                });
-                document.getElementById('commentCount').innerText = product.comments.length;
-            } else {
-                commentsList.innerHTML = '<p style="text-align: center; color: #666;">Aucun commentaire pour le moment.</p>';
-                document.getElementById('commentCount').innerText = '0';
-            }
+        function closeQuickView() {
+            document.getElementById('quickView').style.display = 'none';
         }
-        
-        function handleEditProduct(productId) {
-            const product = products.find(p => p.id === productId);
-            if (!product) return;
-
-            document.getElementById('editingProductId').value = product.id;
-            document.getElementById('productTitle').value = product.title;
-            document.getElementById('productCategory').value = product.categorySlug;
-            document.getElementById('productDescription').value = product.description;
-            document.getElementById('productPrice').value = product.price;
-
-            document.querySelector('#sellProductForm .form-title').textContent = "Modifier le produit";
-            document.querySelector('#sellProductForm .form-submit-btn').textContent = "Mettre à jour";
-
-            showSection('sellProductForm');
-        }
-        
-        function handleDeleteProduct(productId) {
-             if (confirm("Êtes-vous sûr de vouloir supprimer ce produit ? Cette action est irréversible.")) {
-                const productIndex = products.findIndex(p => p.id === productId);
-                if (productIndex > -1) {
-                    products.splice(productIndex, 1);
-                    alert("Produit supprimé avec succès.");
-                    showSection('home');
-                }
-            }
-        }
-
-        // --- EVENT LISTENERS ---
-
-        document.addEventListener('DOMContentLoaded', () => {
-            renderProductsGrid();
-            showSection('home');
-            updateAuthUI();
-        });
-        
-        document.querySelectorAll('.nav-link, .mobile-nav-link, .footer-section a[data-section]').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const sectionId = link.dataset.section;
-                if(sectionId) showSection(sectionId);
-            });
-        });
-
-        mobileMenu.addEventListener('click', toggleMobileMenu);
-        document.querySelector('.mobile-nav-close').addEventListener('click', toggleMobileMenu);
-        
-        searchBtn.addEventListener('click', performSearch);
-        searchInput.addEventListener('keyup', (e) => {
-            if (e.key === 'Enter') performSearch();
-        });
-        clearSearchBtn.addEventListener('click', resetSearch);
-
-        filtersSection.addEventListener('click', (e) => {
-            if (e.target.classList.contains('filter-btn')) {
-                filterProducts(e.target.dataset.filter);
-            }
-        });
-        
-        productsGrid.addEventListener('click', (e) => {
-            const card = e.target.closest('.product-card');
-            if (!card) return;
-
-            const action = e.target.dataset.action;
-            const productId = card.dataset.id;
-            
-            if (action === 'download') {
-                requireAuth(() => showSection('downloadForm'));
-            } else if (action === 'preview') {
-                showProductDetail(productId);
-            } else if (action === 'edit') {
-                 handleEditProduct(productId);
-            } else if (action === 'delete') {
-                 handleDeleteProduct(productId);
-            } else { 
-                showProductDetail(productId);
-            }
-        });
-
-        document.getElementById('productPublishForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            
-            const editingId = document.getElementById('editingProductId').value;
-            
-            if (editingId) {
-                const productIndex = products.findIndex(p => p.id === editingId);
-                if (productIndex > -1) {
-                    products[productIndex].title = this.querySelector('#productTitle').value;
-                    products[productIndex].category = this.querySelector('#productCategory').options[this.querySelector('#productCategory').selectedIndex].text;
-                    products[productIndex].categorySlug = this.querySelector('#productCategory').value;
-                    products[productIndex].description = this.querySelector('#productDescription').value;
-                    products[productIndex].price = parseFloat(this.querySelector('#productPrice').value);
-                    
-                    const imageFile = this.querySelector('#productFile').files[0];
-                    if (imageFile) {
-                        products[productIndex].image = URL.createObjectURL(imageFile);
-                    }
-                    alert('Produit mis à jour !');
-                }
-            } else {
-                const newProduct = {
-                    id: 'product' + (products.length + 1),
-                    creatorId: authState.currentUser.id,
-                    title: this.querySelector('#productTitle').value,
-                    category: this.querySelector('#productCategory').options[this.querySelector('#productCategory').selectedIndex].text,
-                    categorySlug: this.querySelector('#productCategory').value,
-                    description: this.querySelector('#productDescription').value,
-                    image: 'https://placehold.co/600x400/cccccc/333333?text=Nouveau+Produit',
-                    price: parseFloat(this.querySelector('#productPrice').value),
-                    seller: authState.currentUser.name,
-                    likes: 0,
-                    comments: [],
-                    badge: 'Nouveau',
-                    isTopSeller: false
-                };
-                
-                const imageFile = this.querySelector('#productFile').files[0];
-                if (imageFile) {
-                    newProduct.image = URL.createObjectURL(imageFile);
-                }
-
-                products.unshift(newProduct);
-                alert('Votre produit a été soumis !');
-            }
-            
-            this.reset();
-            document.getElementById('editingProductId').value = '';
-            document.querySelector('#sellProductForm .form-title').textContent = "Proposer un nouveau produit ou service";
-            document.querySelector('#sellProductForm .form-submit-btn').textContent = "Soumettre le produit";
-
-            showSection('home');
-        });
-        
-        document.getElementById('downloadInfoForm').addEventListener('submit', function(e){
-            e.preventDefault();
-            alert('Merci ! Votre téléchargement va commencer.');
-            this.reset();
-            showSection('home');
-        });
-
-        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Merci pour votre abonnement !');
-            this.reset();
-        });
-        
-        document.getElementById('detailLikeBtn').addEventListener('click', () => {
-            requireAuth(() => {
-                const product = products.find(p => p.id === currentProductId);
-                if (product) {
-                    product.likes++;
-                    document.getElementById('likeCount').innerText = product.likes.toLocaleString();
-                    renderProductsGrid();
-                }
-            });
-        });
-        
-        document.getElementById('submitCommentBtn').addEventListener('click', () => {
-            requireAuth(() => {
-                const newCommentTextarea = document.getElementById('newCommentText');
-                const newCommentContent = newCommentTextarea.value.trim();
-                if (newCommentContent === '' || !currentProductId) return;
-
-                const product = products.find(p => p.id === currentProductId);
-                if (product) {
-                    const newComment = { author: authState.currentUser.name, text: newCommentContent }; 
-                    product.comments.push(newComment);
-                    renderCommentsForProduct(product);
-                    newCommentTextarea.value = '';
-                }
-            });
-        });
-        
-        document.getElementById('detailDownloadBtn').addEventListener('click', () => requireAuth(() => showSection('downloadForm')));
-        
-        // --- EVENT LISTENERS POUR AUTHENTIFICATION ---
-        document.addEventListener('click', (e) => {
-            const action = e.target.dataset.action;
-            const isInHeaderActions = e.target.closest('.header-actions');
-            
-            if (isInHeaderActions && action) {
-                if (action === 'show-auth') {
-                    e.preventDefault();
-                    showAuthModal('login');
-                } else if (action === 'logout') {
-                    e.preventDefault();
-                    const userDropdown = document.getElementById('userDropdown');
-                    if (userDropdown) userDropdown.classList.remove('active');
-                    handleLogout();
-                } else if (action === 'sell') {
-                    e.preventDefault();
-                    requireAuth(() => showSection('sellProductForm'));
-                } else if (action === 'profile') {
-                    e.preventDefault();
-                    alert('Fonctionnalité "Mon profil" à venir');
-                    const userDropdown = document.getElementById('userDropdown');
-                    if (userDropdown) userDropdown.classList.remove('active');
-                } else if (action === 'orders') {
-                    e.preventDefault();
-                    alert('Fonctionnalité "Mes commandes" à venir');
-                    const userDropdown = document.getElementById('userDropdown');
-                    if (userDropdown) userDropdown.classList.remove('active');
-                } else if (action === 'products') {
-                    e.preventDefault();
-                    alert('Fonctionnalité "Mes produits" à venir');
-                    const userDropdown = document.getElementById('userDropdown');
-                    if (userDropdown) userDropdown.classList.remove('active');
-                }
-            }
-        });
-        
-        document.querySelector('.mobile-nav-container').addEventListener('click', (e) => {
-            if (e.target.dataset.action === 'sell') {
-                e.preventDefault();
-                requireAuth(() => showSection('sellProductForm'));
-            }
-        });
-        
-        authModal.addEventListener('click', (e) => {
-            if (e.target.classList.contains('auth-modal') || e.target.classList.contains('close-btn')) {
-                closeAuthModal();
-            }
-            const action = e.target.dataset.action;
-            if (action === 'show-register') {
-                e.preventDefault();
-                showAuthModal('register');
-            } else if (action === 'show-login') {
-                e.preventDefault();
+		
+		 // Cart functions
+        function addToCart(productId) {
+            if (!currentUser) {
+                showNotification('🔒 Veuillez vous connecter pour ajouter des produits au panier', 'error');
                 showAuthModal('login');
+                return;
             }
-        });
 
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            // Check if product already in cart
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) {
+                showNotification('ℹ️ Ce produit est déjà dans votre panier', 'error');
+                return;
+            }
+
+            cart.push(product);
+            updateCartBadge();
+            showNotification(`🛒 ${product.title} ajouté au panier !`, 'success');
+        }
+
+        function updateCartBadge() {
+            document.getElementById('cartBadge').textContent = cart.length;
+        }
+
+        function showCart() {
+            if (!currentUser) {
+                showNotification('🔒 Veuillez vous connecter pour voir votre panier', 'error');
+                showAuthModal('login');
+                return;
+            }
+
+            if (cart.length === 0) {
+                showNotification('🛒 Votre panier est vide', 'error');
+                return;
+            }
+
+            // Simple cart display - can be enhanced with a proper modal
+            const total = cart.reduce((sum, product) => sum + product.price, 0);
+            showNotification(`🛒 Panier: ${cart.length} produit(s) - Total: ${total.toLocaleString()} MGA`, 'success');
+        }
+
+        function likeProduct(productId) {
+            if (!currentUser) {
+                showNotification('🔒 Veuillez vous connecter pour aimer un produit', 'error');
+                showAuthModal('login');
+                return;
+            }
+
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                product.likes++;
+                showNotification('❤️ Produit ajouté à vos favoris !', 'success');
+                // Refresh the current view
+                if (document.getElementById('products').classList.contains('active')) {
+                    renderProducts(products, document.getElementById('productsGrid'));
+                }
+                if (document.getElementById('home').classList.contains('active')) {
+                    loadTopProducts();
+                }
+            }
+        }
+
+        // Utility functions
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const messageEl = document.getElementById('notificationMessage');
+
+            messageEl.textContent = message;
+            notification.className = `notification ${type}`;
+            notification.style.display = 'block';
+
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 4000);
+        }
+
+        // Form handlers
         document.getElementById('loginForm').addEventListener('submit', (e) => {
             e.preventDefault();
             const email = document.getElementById('loginEmail').value;
             const password = document.getElementById('loginPassword').value;
-            handleLogin(email, password);
+            login(email, password);
         });
 
         document.getElementById('registerForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            const firstName = document.getElementById('registerFirstName').value;
-            const lastName = document.getElementById('registerLastName').value;
+            const name = document.getElementById('registerName').value;
             const email = document.getElementById('registerEmail').value;
-            const phone = document.getElementById('registerPhone').value;
             const password = document.getElementById('registerPassword').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            const acceptTerms = document.getElementById('acceptTerms').checked;
-            
-            if (!acceptTerms) {
-                alert('Vous devez accepter les conditions d\'utilisation pour continuer.');
+            const confirmPassword = document.getElementById('registerConfirmPassword').value;
+
+            if (password !== confirmPassword) {
+                showNotification('❌ Les mots de passe ne correspondent pas', 'error');
                 return;
             }
-            
-            handleRegister(firstName, lastName, email, phone, password, confirmPassword);
+
+            register(name, email, password);
         });
 
-        // Fermer le menu mobile en cliquant à l'extérieur
-        document.addEventListener('click', (e) => {
-            if (mobileNav.classList.contains('active') && 
-                !mobileNav.contains(e.target) && 
-                !mobileMenu.contains(e.target)) {
-                toggleMobileMenu();
+        document.getElementById('sellForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            if (!currentUser) {
+                showNotification('🔒 Veuillez vous connecter pour vendre un produit', 'error');
+                showAuthModal('login');
+                return;
+            }
+
+            const title = document.getElementById('productTitle').value;
+            const category = document.getElementById('productCategory').value;
+            const description = document.getElementById('productDescription').value;
+            const price = parseInt(document.getElementById('productPrice').value);
+
+            const newProduct = {
+                id: Date.now(),
+                title,
+                category,
+                description,
+                price,
+                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400",
+                seller: currentUser.name,
+                rating: 0,
+                likes: 0,
+                isTopSeller: false
+            };
+
+            products.unshift(newProduct);
+            showNotification('🎉 Produit publié avec succès !', 'success');
+            document.getElementById('sellForm').reset();
+            showSection('products');
+        });
+
+        // Search on Enter key
+        document.getElementById('searchInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
             }
         });
 
+        // Close modals on outside click
+        window.addEventListener('click', (e) => {
+            const authModal = document.getElementById('authModal');
+            const quickView = document.getElementById('quickView');
+            const userDropdown = document.getElementById('userDropdown');
+
+            if (e.target === authModal) {
+                closeAuthModal();
+            }
+            if (e.target === quickView) {
+                closeQuickView();
+            }
+            if (!e.target.closest('.user-menu')) {
+                userDropdown.classList.remove('active');
+            }
+        });
+
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', () => {
+            updateAuthUI();
+            loadTopProducts();
+            showNotification('🎉 Bienvenue sur SmartDigitalPro - Votre marketplace digital !', 'success');
+        });
     </script>
 </body>
 </html>
