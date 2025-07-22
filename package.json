@@ -1,0 +1,30 @@
+{
+  "name": "smartdigitalpro-marketplace",
+  "version": "1.0.0",
+  "description": "Marketplace moderne et complète pour Madagascar",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx serve .",
+    "dev": "live-server ."
+  },
+  "keywords": [
+    "marketplace",
+    "e-commerce",
+    "madagascar",
+    "selling-platform",
+    "digital-products",
+    "responsive",
+    "modern-ui"
+  ],
+  "author": "SmartDigitalPro",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/votre-username/smartdigitalpro-marketplace.git"
+  },
+  "bugs": {
+    "url": "https://github.com/votre-username/smartdigitalpro-marketplace/issues"
+  },
+  "homepage": "https://github.com/votre-username/smartdigitalpro-marketplace#readme"
+}
