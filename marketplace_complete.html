@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartDigitalPro - Marketplace Madagascar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10b981;
+            --primary-dark: #047857;
+            --secondary: #3b82f6;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --dark: #1f2937;
+            --gray: #6b7280;
+            --light-gray: #f3f4f6;
+            --white: #ffffff;
+            --border: #e5e7eb;
+            --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+            --radius-lg: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #f8fafc;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+
+        .header-flag {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            text-align: center;
+            padding: 4px 0;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .search-container {
+            flex: 1;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 0.75rem 3rem 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+            font-size: 1.125rem;
+        }
+
+        .nav-buttons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            background: var(--light-gray);
+            color: var(--dark);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gray);
+            color: var(--white);
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            height: 56px;
+        }
+
+        .nav-link {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 1rem 0;
+            transition: color 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary);
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        /* Category Filter */
+        .category-filter {
+            background: var(--white);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .category-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .category-content::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--white);
+            color: var(--gray);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+        }
+
+        .category-btn.active, .category-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* Product Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            align-items: stretch;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            background: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-gallery {
+            position: relative;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .product-images {
+            display: flex;
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+
+        .product-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-new {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .badge-featured {
+            background: var(--warning);
+            color: var(--white);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-category {
+            font-size: 0.75rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .product-description {
+            color: var(--gray);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .product-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: auto;
+        }
+
+        .product-interactions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .interaction-buttons {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .interaction-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: var(--gray);
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+            padding: 0.5rem;
+            border-radius: var(--radius);
+        }
+
+        .interaction-btn:hover {
+            background: var(--light-gray);
+        }
+
+        .like-btn {
+            color: var(--danger);
+        }
+
+        .like-btn:hover {
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .comment-btn {
+            color: var(--secondary);
+        }
+
+        .comment-btn:hover {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .contact-btn {
+            color: var(--warning);
+        }
+
+        .contact-btn:hover {
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        .single-reaction {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .reaction-btn {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 0.25rem 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+        }
+
+        .reaction-btn:hover {
+            background: var(--light-gray);
+        }
+
+        .reaction-btn.active {
+            background: var(--danger);
+            color: white;
+            border-color: var(--danger);
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Full Screen Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-content {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 1200px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalIn 0.3s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 1rem;
+            }
+
+            .search-container {
+                order: 3;
+                width: 100%;
+                margin-top: 1rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 1rem;
+            }
+
+            .product-image,
+            .product-gallery {
+                height: 240px;
+            }
+
+            .modal.active {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-flag">
+            🇲🇬 Marketplace officiel de Madagascar - Achetez et vendez en toute sécurité
+        </div>
+        <div class="header-content">
+            <a href="#" class="logo" onclick="showSection('home')">
+                <i class="fas fa-store"></i>
+                SmartDigitalPro
+            </a>
+            
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Rechercher des produits..." id="searchInput">
+                <button class="search-btn" onclick="searchProducts()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="nav-btn btn-secondary" onclick="showAuthModal('login')" id="loginBtn">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Connexion
+                </button>
+                <button class="nav-btn btn-primary" onclick="showAuthModal('register')" id="registerBtn">
+                    <i class="fas fa-user-plus"></i>
+                    S'inscrire
+                </button>
+                <div class="user-menu" id="userMenu" style="display: none;">
+                    <span id="userName"></span>
+                    <button class="nav-btn btn-secondary" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Déconnexion
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <a href="#" class="nav-link active" onclick="showSection('home')">Accueil</a>
+            <a href="#" class="nav-link" onclick="showSection('products')">Produits</a>
+            <a href="#" class="nav-link" onclick="showSection('sell')">Vendre</a>
+            <a href="#" class="nav-link" onclick="showSection('messages')">Messages</a>
+            <a href="#" class="nav-link" onclick="showSection('favorites')">Favoris</a>
+            <a href="#" class="nav-link" onclick="showSection('about')">À propos</a>
+        </div>
+    </nav>
+
+    <!-- Category Filter -->
+    <div class="category-filter">
+        <div class="category-content">
+            <button class="category-btn active" onclick="filterByCategory('all')">Tous</button>
+            <button class="category-btn" onclick="filterByCategory('electronics')">Électronique</button>
+            <button class="category-btn" onclick="filterByCategory('clothing')">Vêtements</button>
+            <button class="category-btn" onclick="filterByCategory('home')">Maison</button>
+            <button class="category-btn" onclick="filterByCategory('sports')">Sports</button>
+            <button class="category-btn" onclick="filterByCategory('books')">Livres</button>
+            <button class="category-btn" onclick="filterByCategory('services')">Services</button>
+            <button class="category-btn" onclick="filterByCategory('automotive')">Automobile</button>
+            <button class="category-btn" onclick="filterByCategory('beauty')">Beauté</button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: var(--dark);">
+                    Bienvenue sur SmartDigitalPro
+                </h1>
+                <p style="font-size: 1.125rem; color: var(--gray); max-width: 600px; margin: 0 auto;">
+                    La marketplace #1 de Madagascar. Découvrez des milliers de produits et vendez facilement en ligne.
+                </p>
+            </div>
+
+            <div class="products-grid" id="featuredProducts"></div>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products" class="section">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2 style="font-size: 2rem; color: var(--dark);">Tous les produits</h2>
+                <div style="display: flex; gap: 1rem; align-items: center;">
+                    <select id="sortSelect" onchange="sortProducts()" style="padding: 0.5rem; border: 1px solid var(--border); border-radius: var(--radius);">
+                        <option value="newest">Plus récents</option>
+                        <option value="price-low">Prix croissant</option>
+                        <option value="price-high">Prix décroissant</option>
+                        <option value="popular">Populaires</option>
+                    </select>
+                </div>
+            </div>
+            <div class="products-grid" id="productsGrid"></div>
+        </section>
+
+        <!-- Sell Section -->
+        <section id="sell" class="section">
+            <div style="background: var(--white); padding: 2rem; border-radius: var(--radius-lg); text-align: center;">
+                <h2 style="margin-bottom: 2rem; color: var(--dark);">Espace Vendeur</h2>
+                <p style="color: var(--gray); margin-bottom: 2rem;">Connectez-vous pour accéder à l'espace vendeur et commencer à vendre vos produits.</p>
+                <button class="btn btn-primary" onclick="showAuthModal('login')">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Se connecter pour vendre
+                </button>
+            </div>
+        </section>
+
+        <!-- Messages Section -->
+        <section id="messages" class="section">
+            <h2 style="margin-bottom: 2rem; color: var(--dark);">Mes conversations</h2>
+            <div id="conversationsList">
+                <p style="text-align: center; color: var(--gray); padding: 3rem;">
+                    <i class="fas fa-comments" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>
+                    Aucune conversation pour le moment.<br>
+                    Contactez un vendeur pour commencer une conversation !
+                </p>
+            </div>
+        </section>
+
+        <!-- Favorites Section -->
+        <section id="favorites" class="section">
+            <h2 style="margin-bottom: 2rem; color: var(--dark);">Mes favoris</h2>
+            <div class="products-grid" id="favoritesGrid">
+                <p style="text-align: center; color: var(--gray); padding: 3rem; grid-column: 1 / -1;">
+                    <i class="fas fa-heart" style="font-size: 3rem; margin-bottom: 1rem; display: block;"></i>
+                    Aucun favori pour le moment.<br>
+                    Ajoutez des produits à vos favoris pour les retrouver ici !
+                </p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                <h2 style="font-size: 2.5rem; margin-bottom: 2rem; color: var(--dark);">À propos de SmartDigitalPro</h2>
+                
+                <div style="background: var(--white); padding: 3rem; border-radius: var(--radius-lg);">
+                    <p style="font-size: 1.125rem; line-height: 1.8; color: var(--gray); margin-bottom: 2rem;">
+                        SmartDigitalPro est la première marketplace de Madagascar, créée pour connecter acheteurs et vendeurs 
+                        dans un environnement sécurisé et moderne. Notre mission est de démocratiser le commerce électronique 
+                        à Madagascar et d'offrir une plateforme accessible à tous.
+                    </p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                        <div style="text-align: center;">
+                            <div style="width: 80px; height: 80px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: var(--white); font-size: 2rem;">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3 style="margin-bottom: 1rem; color: var(--dark);">Sécurisé</h3>
+                            <p style="color: var(--gray);">Transactions protégées et vérification des vendeurs</p>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <div style="width: 80px; height: 80px; background: var(--secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: var(--white); font-size: 2rem;">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <h3 style="margin-bottom: 1rem; color: var(--dark);">Livraison</h3>
+                            <p style="color: var(--gray);">Livraison dans toute la Madagascar</p>
+                        </div>
+                        
+                        <div style="text-align: center;">
+                            <div style="width: 80px; height: 80px; background: var(--warning); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: var(--white); font-size: 2rem;">
+                                <i class="fas fa-headset"></i>
+                            </div>
+                            <h3 style="margin-bottom: 1rem; color: var(--dark);">Support 24/7</h3>
+                            <p style="color: var(--gray);">Assistance client disponible en permanence</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Notification -->
+    <div class="notification" id="notification" style="position: fixed; top: 2rem; right: 2rem; padding: 1rem 1.5rem; border-radius: var(--radius-lg); color: var(--white); font-weight: 500; z-index: 10001; transform: translateX(100%); transition: transform 0.3s ease;"></div>
+
+    <script>
+        // Global variables
+        let currentUser = null;
+        let products = [];
+        let filteredProducts = [];
+        let favorites = [];
+
+        // Sample products data
+        const sampleProducts = [
+            {
+                id: 1,
+                title: "MacBook Air M2",
+                category: "electronics",
+                price: 2800000,
+                description: "MacBook Air avec puce M2, 8Go RAM, 256Go SSD. État neuf, encore sous garantie. Parfait pour le travail et les études.",
+                images: ["https://via.placeholder.com/400x300/10b981/ffffff?text=MacBook+Air"],
+                seller: {
+                    name: "Tech Store Antananarivo",
+                    rating: 4.8,
+                    totalSales: 150
+                },
+                stock: 5,
+                type: "physical",
+                reactions: { like: 24, love: 8, wow: 3 },
+                userReaction: null,
+                views: 245,
+                featured: true
+            },
+            {
+                id: 2,
+                title: "Formation développement web",
+                category: "services",
+                price: 150000,
+                description: "Formation complète en développement web (HTML, CSS, JavaScript, PHP). 3 mois de cours avec certificat. Support inclus.",
+                images: ["https://via.placeholder.com/400x300/3b82f6/ffffff?text=Formation+Web"],
+                seller: {
+                    name: "CodeAcademy Madagascar",
+                    rating: 4.9,
+                    totalSales: 89
+                },
+                stock: 20,
+                type: "service",
+                reactions: { like: 18, love: 5, wow: 2 },
+                userReaction: null,
+                views: 189
+            },
+            {
+                id: 3,
+                title: "Samsung Galaxy S23",
+                category: "electronics",
+                price: 1200000,
+                description: "Samsung Galaxy S23 128Go, état excellent. Avec chargeur et écouteurs d'origine. Facture disponible.",
+                images: ["https://via.placeholder.com/400x300/ef4444/ffffff?text=Galaxy+S23"],
+                seller: {
+                    name: "Mobile Shop Tamatave",
+                    rating: 4.6,
+                    totalSales: 203
+                },
+                stock: 3,
+                type: "physical",
+                reactions: { like: 32, love: 12, wow: 1 },
+                userReaction: null,
+                views: 321
+            },
+            {
+                id: 4,
+                title: "Robe traditionnelle Malagasy",
+                category: "clothing",
+                price: 85000,
+                description: "Belle robe traditionnelle malgache, faite main. Taille M, tissus de qualité premium. Idéale pour les événements.",
+                images: ["https://via.placeholder.com/400x300/f59e0b/ffffff?text=Robe+Traditionnelle"],
+                seller: {
+                    name: "Artisanat Malgache",
+                    rating: 4.7,
+                    totalSales: 76
+                },
+                stock: 2,
+                type: "physical",
+                reactions: { like: 15, love: 20, wow: 5 },
+                userReaction: null,
+                views: 142
+            },
+            {
+                id: 5,
+                title: "Service de livraison express",
+                category: "services",
+                price: 25000,
+                description: "Service de livraison express dans Antananarivo. Livraison le jour même garantie. Suivi en temps réel.",
+                images: ["https://via.placeholder.com/400x300/10b981/ffffff?text=Livraison+Express"],
+                seller: {
+                    name: "Express Delivery Mada",
+                    rating: 4.5,
+                    totalSales: 312
+                },
+                stock: 999,
+                type: "service",
+                reactions: { like: 8, love: 3, wow: 1 },
+                userReaction: null,
+                views: 89
+            },
+            {
+                id: 6,
+                title: "Kit de jardinage complet",
+                category: "home",
+                price: 75000,
+                description: "Kit complet pour jardinage : bêche, râteau, arrosoir, gants, graines diverses. Tout pour commencer votre jardin.",
+                images: ["https://via.placeholder.com/400x300/047857/ffffff?text=Kit+Jardinage"],
+                seller: {
+                    name: "Green Garden Madagascar",
+                    rating: 4.8,
+                    totalSales: 45
+                },
+                stock: 8,
+                type: "physical",
+                reactions: { like: 12, love: 6, wow: 2 },
+                userReaction: null,
+                views: 156
+            }
+        ];
+
+        // Initialize the application
+        function init() {
+            products = [...sampleProducts];
+            filteredProducts = [...products];
+            
+            renderProducts(products.filter(p => p.featured), document.getElementById('featuredProducts'));
+            renderProducts(filteredProducts, document.getElementById('productsGrid'));
+            updateFavorites();
+        }
+
+        // Product rendering
+        function renderProducts(productsToRender, container) {
+            if (productsToRender.length === 0) {
+                container.innerHTML = `
+                    <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--gray);">
+                        <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                        <h3>Aucun produit trouvé</h3>
+                        <p>Essayez d'autres mots-clés ou catégories</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = productsToRender.map(product => `
+                <div class="product-card" onclick="showProductDetails(${product.id})">
+                    <div class="product-gallery">
+                        <div class="product-images">
+                            ${product.images.map(img => `<img src="${img}" alt="${product.title}">`).join('')}
+                        </div>
+                        ${product.featured ? '<div class="product-badge badge-featured">Populaire</div>' : ''}
+                        ${product.type === 'service' ? '<div class="product-badge badge-new">Service</div>' : ''}
+                    </div>
+                    
+                    <div class="product-info">
+                        <div class="product-category">${getCategoryName(product.category)}</div>
+                        <h3 class="product-title">${product.title}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <div class="product-price">${formatPrice(product.price)} Ar</div>
+                        
+                        <div class="product-meta">
+                            <span><i class="fas fa-eye"></i> ${product.views}</span>
+                            <span><i class="fas fa-star"></i> ${product.seller.rating}</span>
+                            <span><i class="fas fa-box"></i> ${product.stock}</span>
+                        </div>
+
+                        <div class="product-interactions">
+                            <div class="interaction-buttons">
+                                <button class="interaction-btn like-btn" onclick="toggleReaction(${product.id}, 'like'); event.stopPropagation();">
+                                    <i class="fas fa-heart"></i> ${product.reactions.like}
+                                </button>
+                                <button class="interaction-btn comment-btn" onclick="showProductDetails(${product.id}); event.stopPropagation();">
+                                    <i class="fas fa-comment"></i> 2
+                                </button>
+                                <button class="interaction-btn contact-btn" onclick="contactSeller(${product.id}); event.stopPropagation();">
+                                    <i class="fas fa-message"></i> Contact
+                                </button>
+                            </div>
+                            
+                            <div class="single-reaction">
+                                <button class="reaction-btn ${product.userReaction === 'like' ? 'active' : ''}" onclick="toggleReaction(${product.id}, 'like'); event.stopPropagation();">
+                                    ❤️ ${product.reactions.like}
+                                </button>
+                                <button class="reaction-btn ${product.userReaction === 'love' ? 'active' : ''}" onclick="toggleReaction(${product.id}, 'love'); event.stopPropagation();">
+                                    😍 ${product.reactions.love}
+                                </button>
+                                <button class="reaction-btn ${product.userReaction === 'wow' ? 'active' : ''}" onclick="toggleReaction(${product.id}, 'wow'); event.stopPropagation();">
+                                    😮 ${product.reactions.wow}
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="product-actions">
+                            <button class="btn btn-primary" onclick="buyProduct(${product.id}); event.stopPropagation();">
+                                <i class="fas fa-shopping-cart"></i>
+                                ${product.type === 'service' ? 'Réserver' : 'Acheter'}
+                            </button>
+                            <button class="btn btn-outline" onclick="toggleFavorite(${product.id}); event.stopPropagation();">
+                                <i class="fas fa-heart ${favorites.includes(product.id) ? '' : ''}"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Show product details
+        function showProductDetails(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            product.views++;
+            showNotification(`📱 Ouverture des détails de "${product.title}"`, 'success');
+        }
+
+        // Toggle reaction
+        function toggleReaction(productId, reactionType) {
+            if (!currentUser) {
+                showNotification('🔒 Veuillez vous connecter pour réagir', 'error');
+                showAuthModal('login');
+                return;
+            }
+
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            if (product.userReaction && product.userReaction !== reactionType) {
+                product.reactions[product.userReaction]--;
+            }
+
+            if (product.userReaction === reactionType) {
+                product.reactions[reactionType]--;
+                product.userReaction = null;
+                showNotification('💭 Réaction supprimée', 'warning');
+            } else {
+                product.reactions[reactionType]++;
+                product.userReaction = reactionType;
+                showNotification(`${getReactionEmoji(reactionType)} Réaction ajoutée !`, 'success');
+            }
+
+            renderProducts(filteredProducts, document.getElementById('productsGrid'));
+            renderProducts(products.filter(p => p.featured), document.getElementById('featuredProducts'));
+        }
+
+        // Contact seller
+        function contactSeller(productId) {
+            if (!currentUser) {
+                showNotification('🔒 Veuillez vous connecter pour contacter le vendeur', 'error');
+                showAuthModal('login');
+                return;
+            }
+
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            showNotification(`💬 Ouverture de la conversation avec ${product.seller.name}`, 'success');
+        }
+
+        // Buy product
+        function buyProduct(productId) {
+            if (!currentUser) {
+                showNotification('🔒 Veuillez vous connecter pour acheter', 'error');
+                showAuthModal('login');
+                return;
+            }
+
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            if (product.stock < 1) {
+                showNotification('❌ Stock insuffisant', 'error');
+                return;
+            }
+
+            product.stock--;
+            showNotification(`✅ Achat confirmé ! Vous avez acheté "${product.title}"`, 'success');
+        }
+
+        // Toggle favorite
+        function toggleFavorite(productId) {
+            if (!currentUser) {
+                showNotification('🔒 Veuillez vous connecter pour ajouter aux favoris', 'error');
+                return;
+            }
+
+            const index = favorites.indexOf(productId);
+            if (index === -1) {
+                favorites.push(productId);
+                showNotification('❤️ Ajouté aux favoris', 'success');
+            } else {
+                favorites.splice(index, 1);
+                showNotification('💔 Retiré des favoris', 'warning');
+            }
+
+            updateFavorites();
+            renderProducts(filteredProducts, document.getElementById('productsGrid'));
+            renderProducts(products.filter(p => p.featured), document.getElementById('featuredProducts'));
+        }
+
+        // Update favorites
+        function updateFavorites() {
+            const favoriteProducts = products.filter(p => favorites.includes(p.id));
+            renderProducts(favoriteProducts, document.getElementById('favoritesGrid'));
+        }
+
+        // Search products
+        function searchProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            
+            if (!query) {
+                filteredProducts = [...products];
+            } else {
+                filteredProducts = products.filter(product => 
+                    product.title.toLowerCase().includes(query) ||
+                    product.description.toLowerCase().includes(query) ||
+                    product.category.toLowerCase().includes(query)
+                );
+            }
+            
+            renderProducts(filteredProducts, document.getElementById('productsGrid'));
+        }
+
+        // Filter by category
+        function filterByCategory(category) {
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            if (category === 'all') {
+                filteredProducts = [...products];
+            } else {
+                filteredProducts = products.filter(product => product.category === category);
+            }
+            
+            renderProducts(filteredProducts, document.getElementById('productsGrid'));
+        }
+
+        // Sort products
+        function sortProducts() {
+            const sortBy = document.getElementById('sortSelect').value;
+            
+            switch (sortBy) {
+                case 'newest':
+                    filteredProducts.sort((a, b) => b.id - a.id);
+                    break;
+                case 'price-low':
+                    filteredProducts.sort((a, b) => a.price - b.price);
+                    break;
+                case 'price-high':
+                    filteredProducts.sort((a, b) => b.price - a.price);
+                    break;
+                case 'popular':
+                    filteredProducts.sort((a, b) => b.views - a.views);
+                    break;
+            }
+            
+            renderProducts(filteredProducts, document.getElementById('productsGrid'));
+        }
+
+        // Show section
+        function showSection(sectionName) {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionName).classList.add('active');
+
+            if (sectionName === 'products') {
+                renderProducts(filteredProducts, document.getElementById('productsGrid'));
+            } else if (sectionName === 'favorites') {
+                updateFavorites();
+            }
+        }
+
+        // Auth functions
+        function showAuthModal(type) {
+            showNotification('🔒 Fonctionnalité de connexion à venir !', 'warning');
+        }
+
+        function logout() {
+            currentUser = null;
+            favorites = [];
+            updateUserUI();
+            showNotification('👋 À bientôt !', 'warning');
+        }
+
+        function updateUserUI() {
+            const loginBtn = document.getElementById('loginBtn');
+            const registerBtn = document.getElementById('registerBtn');
+            const userMenu = document.getElementById('userMenu');
+            const userName = document.getElementById('userName');
+
+            if (currentUser) {
+                loginBtn.style.display = 'none';
+                registerBtn.style.display = 'none';
+                userMenu.style.display = 'flex';
+                userName.textContent = currentUser.name;
+            } else {
+                loginBtn.style.display = 'flex';
+                registerBtn.style.display = 'flex';
+                userMenu.style.display = 'none';
+            }
+        }
+
+        // Show notification
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type}`;
+            notification.style.background = type === 'success' ? 'var(--primary)' : 
+                                          type === 'error' ? 'var(--danger)' : 'var(--warning)';
+            notification.style.transform = 'translateX(0)';
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+            }, 3000);
+        }
+
+        // Utility functions
+        function formatPrice(price) {
+            return new Intl.NumberFormat('fr-FR').format(price);
+        }
+
+        function getCategoryName(category) {
+            const categories = {
+                'electronics': 'Électronique',
+                'clothing': 'Vêtements',
+                'home': 'Maison & Jardin',
+                'sports': 'Sports & Loisirs',
+                'books': 'Livres & Média',
+                'services': 'Services',
+                'automotive': 'Automobile',
+                'beauty': 'Beauté & Santé'
+            };
+            return categories[category] || category;
+        }
+
+        function getReactionEmoji(reactionType) {
+            const emojis = {
+                like: '❤️',
+                love: '😍',
+                wow: '😮'
+            };
+            return emojis[reactionType] || '👍';
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', init);
+
+        document.getElementById('searchInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                searchProducts();
+            }
+        });
+    </script>
+</body>
+</html>

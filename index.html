@@ -298,6 +298,7 @@
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
+            align-items: stretch; /* Assure que toutes les cartes ont la même hauteur */
         }
 
         .product-card {
@@ -308,6 +309,9 @@
             transition: all 0.3s ease;
             cursor: pointer;
             border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            height: 100%; /* Hauteur fixe pour l'alignement des boutons */
         }
 
         .product-card:hover {
@@ -318,7 +322,7 @@
 
         .product-image {
             width: 100%;
-            height: 220px;
+            height: 280px; /* Augmentation de la hauteur pour plus d'importance visuelle */
             background: var(--light-gray);
             display: flex;
             align-items: center;
@@ -362,6 +366,9 @@
 
         .product-info {
             padding: 1.5rem;
+            flex: 1; /* Prend l'espace disponible pour pousser les boutons en bas */
+            display: flex;
+            flex-direction: column;
         }
 
         .product-category {
@@ -416,6 +423,7 @@
         .product-actions {
             display: flex;
             gap: 0.75rem;
+            margin-top: auto; /* Pousse les boutons vers le bas */
         }
 
         .btn-small {
@@ -1005,6 +1013,31 @@
             color: var(--danger);
         }
 
+        /* Couleurs spécifiques pour chaque type d'action */
+        .interaction-btn.like-btn {
+            color: var(--danger); /* Rouge pour les réactions/likes */
+        }
+
+        .interaction-btn.like-btn:hover {
+            color: #dc2626; /* Rouge plus foncé au hover */
+        }
+
+        .interaction-btn.comment-btn {
+            color: var(--secondary); /* Bleu pour les commentaires */
+        }
+
+        .interaction-btn.comment-btn:hover {
+            color: #1d4ed8; /* Bleu plus foncé au hover */
+        }
+
+        .interaction-btn.contact-btn {
+            color: var(--warning); /* Jaune pour contacter */
+        }
+
+        .interaction-btn.contact-btn:hover {
+            color: #d97706; /* Orange plus foncé au hover */
+        }
+
         /* Comments Section */
         .comments-section {
             margin-top: 2rem;
@@ -1204,7 +1237,7 @@
 
         .product-gallery {
             position: relative;
-            height: 220px;
+            height: 280px; /* Synchronisation avec la nouvelle hauteur d'image */
             overflow: hidden;
         }
 
@@ -1285,9 +1318,25 @@
         }
 
         .reaction-btn.active {
-            background: var(--primary);
+            background: var(--danger); /* Rouge pour les réactions actives */
             color: white;
-            border-color: var(--primary);
+            border-color: var(--danger);
+        }
+
+        /* Styles pour une seule réaction visible */
+        .single-reaction {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .single-reaction .reaction-btn {
+            display: none; /* Cache toutes les réactions par défaut */
+        }
+
+        .single-reaction .reaction-btn.active,
+        .single-reaction .reaction-btn:first-child {
+            display: inline-flex; /* Affiche seulement la réaction active ou la première */
         }
 
         /* Additional Rating Styles */
@@ -1397,6 +1446,28 @@
             }
 
             .reactions-container {
+                justify-content: center;
+            }
+
+            /* Ajustements spécifiques pour les cartes produits sur mobile */
+            .product-image {
+                height: 240px; /* Hauteur légèrement réduite sur mobile mais toujours dominante */
+            }
+
+            .product-gallery {
+                height: 240px;
+            }
+
+            .product-interactions {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .interaction-buttons {
+                justify-content: center;
+            }
+
+            .single-reaction {
                 justify-content: center;
             }
         }
@@ -2341,6 +2412,9 @@
             if (!product.reactions) {
                 product.reactions = { like: product.likes || 0, love: 0, wow: 0 };
             }
+            if (!product.userReaction) {
+                product.userReaction = null; /* Aucune réaction par défaut */
+            }
             if (!product.views) {
                 product.views = Math.floor(Math.random() * 1000) + 100;
             }
@@ -2558,24 +2632,24 @@ Je vais continuer avec le code JavaScript complet :
                 </div>
                 <div class="product-interactions">
                     <div class="interaction-buttons">
-                        <button class="interaction-btn" onclick="toggleReaction(${product.id}, 'like'); event.stopPropagation();">
+                        <button class="interaction-btn like-btn" onclick="toggleReaction(${product.id}, 'like'); event.stopPropagation();">
                             <i class="fas fa-heart"></i> ${product.reactions ? product.reactions.like : product.likes}
                         </button>
-                        <button class="interaction-btn" onclick="showComments(${product.id}); event.stopPropagation();">
+                        <button class="interaction-btn comment-btn" onclick="showComments(${product.id}); event.stopPropagation();">
                             <i class="fas fa-comment"></i> ${comments[product.id] ? comments[product.id].length : 0}
                         </button>
-                        <button class="interaction-btn" onclick="contactSeller(${product.id}); event.stopPropagation();">
+                        <button class="interaction-btn contact-btn" onclick="contactSeller(${product.id}); event.stopPropagation();">
                             <i class="fas fa-message"></i> Contact
                         </button>
                     </div>
-                    <div style="display: flex; gap: 0.5rem;">
-                        <button class="reaction-btn" onclick="toggleReaction(${product.id}, 'like'); event.stopPropagation();">
+                    <div class="single-reaction">
+                        <button class="reaction-btn ${product.userReaction === 'like' ? 'active' : ''}" onclick="toggleReaction(${product.id}, 'like'); event.stopPropagation();">
                             ❤️ ${product.reactions ? product.reactions.like : 0}
                         </button>
-                        <button class="reaction-btn" onclick="toggleReaction(${product.id}, 'love'); event.stopPropagation();">
+                        <button class="reaction-btn ${product.userReaction === 'love' ? 'active' : ''}" onclick="toggleReaction(${product.id}, 'love'); event.stopPropagation();">
                             😍 ${product.reactions ? product.reactions.love : 0}
                         </button>
-                        <button class="reaction-btn" onclick="toggleReaction(${product.id}, 'wow'); event.stopPropagation();">
+                        <button class="reaction-btn ${product.userReaction === 'wow' ? 'active' : ''}" onclick="toggleReaction(${product.id}, 'wow'); event.stopPropagation();">
                             😮 ${product.reactions ? product.reactions.wow : 0}
                         </button>
                     </div>
@@ -2616,9 +2690,22 @@ Je vais continuer avec le code JavaScript complet :
                 if (!product.reactions) {
                     product.reactions = { like: 0, love: 0, wow: 0 };
                 }
-                product.reactions[reactionType]++;
                 
-                showNotification(`${getReactionEmoji(reactionType)} Réaction ajoutée !`, 'success');
+                // Si l'utilisateur avait déjà une réaction, la retirer
+                if (product.userReaction) {
+                    product.reactions[product.userReaction]--;
+                }
+                
+                // Si c'est la même réaction, on la supprime (toggle off)
+                if (product.userReaction === reactionType) {
+                    product.userReaction = null;
+                    showNotification('Réaction retirée', 'info');
+                } else {
+                    // Sinon, on ajoute la nouvelle réaction
+                    product.userReaction = reactionType;
+                    product.reactions[reactionType]++;
+                    showNotification(`${getReactionEmoji(reactionType)} Réaction ajoutée !`, 'success');
+                }
                 
                 // Refresh product display
                 if (document.getElementById('products').classList.contains('active')) {
