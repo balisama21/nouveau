@@ -74,6 +74,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            cursor: pointer;
         }
 
         .search-container {
@@ -241,7 +242,7 @@
             display: block;
         }
 
-        /* Product Grid */
+        /* Product Grid - ALIGNED CARDS */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -268,6 +269,7 @@
             box-shadow: var(--shadow-lg);
         }
 
+        /* IMPROVED IMAGE HEIGHT */
         .product-image {
             width: 100%;
             height: 280px;
@@ -386,6 +388,7 @@
             align-items: center;
         }
 
+        /* UNIFORMIZED COLOR INTERACTIONS */
         .interaction-btn {
             background: none;
             border: none;
@@ -395,7 +398,7 @@
             gap: 0.3rem;
             color: var(--gray);
             font-size: 0.875rem;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
             padding: 0.5rem;
             border-radius: var(--radius);
         }
@@ -405,27 +408,27 @@
         }
 
         .like-btn {
-            color: var(--danger);
+            color: var(--danger) !important;
         }
 
         .like-btn:hover {
-            background: rgba(239, 68, 68, 0.1);
+            background: rgba(239, 68, 68, 0.1) !important;
         }
 
         .comment-btn {
-            color: var(--secondary);
+            color: var(--secondary) !important;
         }
 
         .comment-btn:hover {
-            background: rgba(59, 130, 246, 0.1);
+            background: rgba(59, 130, 246, 0.1) !important;
         }
 
         .contact-btn {
-            color: var(--warning);
+            color: var(--warning) !important;
         }
 
         .contact-btn:hover {
-            background: rgba(245, 158, 11, 0.1);
+            background: rgba(245, 158, 11, 0.1) !important;
         }
 
         .single-reaction {
@@ -488,14 +491,14 @@
             color: var(--white);
         }
 
-        /* Full Screen Modal */
+        /* FULL SCREEN MODAL */
         .modal {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw;
+            height: 100vh;
             background: rgba(0, 0, 0, 0.8);
             z-index: 10000;
             overflow-y: auto;
@@ -503,7 +506,7 @@
 
         .modal.active {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             padding: 2rem;
         }
@@ -517,6 +520,7 @@
             overflow-y: auto;
             position: relative;
             animation: modalIn 0.3s ease;
+            margin-top: 2rem;
         }
 
         @keyframes modalIn {
@@ -547,6 +551,250 @@
             z-index: 10;
         }
 
+        .product-modal-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            padding: 2rem;
+        }
+
+        .main-product-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            margin-bottom: 1rem;
+        }
+
+        .product-modal-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .product-modal-price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .seller-info {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            margin-bottom: 2rem;
+        }
+
+        .seller-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .seller-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .seller-rating {
+            color: var(--warning);
+        }
+
+        /* CHAT MODAL */
+        .chat-modal {
+            display: none;
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 400px;
+            height: 500px;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            z-index: 9999;
+            flex-direction: column;
+        }
+
+        .chat-modal.active {
+            display: flex;
+        }
+
+        .chat-header {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-title {
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .chat-message {
+            margin-bottom: 1rem;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-lg);
+            max-width: 80%;
+        }
+
+        .chat-message.sent {
+            background: var(--primary);
+            color: var(--white);
+            margin-left: auto;
+        }
+
+        .chat-message.received {
+            background: var(--light-gray);
+            color: var(--dark);
+        }
+
+        .chat-input-container {
+            padding: 1rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            outline: none;
+        }
+
+        .chat-send {
+            padding: 0.75rem 1rem;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+        }
+
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius-lg);
+            color: var(--white);
+            font-weight: 500;
+            z-index: 10001;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            background: var(--primary);
+        }
+
+        .notification.error {
+            background: var(--danger);
+        }
+
+        .notification.warning {
+            background: var(--warning);
+        }
+
+        /* Auth Modal */
+        .auth-modal {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .auth-tab {
+            flex: 1;
+            padding: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--gray);
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .auth-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-color: var(--primary);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-content {
@@ -561,6 +809,15 @@
                 margin-top: 1rem;
             }
 
+            .nav-content {
+                overflow-x: auto;
+                scrollbar-width: none;
+            }
+
+            .nav-content::-webkit-scrollbar {
+                display: none;
+            }
+
             .products-grid {
                 grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
                 gap: 1rem;
@@ -569,6 +826,34 @@
             .product-image,
             .product-gallery {
                 height: 240px;
+            }
+
+            .product-interactions {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .interaction-buttons {
+                justify-content: center;
+            }
+
+            .single-reaction {
+                justify-content: center;
+            }
+
+            .product-modal-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .main-product-image {
+                height: 300px;
+            }
+
+            .chat-modal {
+                width: calc(100% - 2rem);
+                right: 1rem;
+                left: 1rem;
             }
 
             .modal.active {
@@ -605,7 +890,7 @@
                     <i class="fas fa-user-plus"></i>
                     S'inscrire
                 </button>
-                <div class="user-menu" id="userMenu" style="display: none;">
+                <div class="user-menu" id="userMenu" style="display: none; align-items: center; gap: 1rem;">
                     <span id="userName"></span>
                     <button class="nav-btn btn-secondary" onclick="logout()">
                         <i class="fas fa-sign-out-alt"></i>
@@ -753,8 +1038,85 @@
         </section>
     </main>
 
+    <!-- Product Modal (FULL SCREEN) -->
+    <div class="modal" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal('productModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="product-modal-content" id="productModalContent">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal">
+        <div class="auth-modal">
+            <button class="modal-close" onclick="closeModal('authModal')">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="switchAuthTab('login')">Connexion</button>
+                <button class="auth-tab" onclick="switchAuthTab('register')">Inscription</button>
+            </div>
+
+            <form class="auth-form active" id="loginForm" onsubmit="login(event)">
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Mot de passe</label>
+                    <input type="password" class="form-input" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Se connecter</button>
+            </form>
+
+            <form class="auth-form" id="registerForm" onsubmit="register(event)">
+                <div class="form-group">
+                    <label class="form-label">Nom complet</label>
+                    <input type="text" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Mot de passe</label>
+                    <input type="password" class="form-input" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Confirmer le mot de passe</label>
+                    <input type="password" class="form-input" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">S'inscrire</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Chat Modal (SELLER COMMUNICATION) -->
+    <div class="chat-modal" id="chatModal">
+        <div class="chat-header">
+            <div class="chat-title">Chat avec le vendeur</div>
+            <button class="chat-close" onclick="closeChat()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <!-- Messages will be populated here -->
+        </div>
+        <div class="chat-input-container">
+            <input type="text" class="chat-input" id="chatInput" placeholder="Tapez votre message...">
+            <button class="chat-send" onclick="sendMessage()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
     <!-- Notification -->
-    <div class="notification" id="notification" style="position: fixed; top: 2rem; right: 2rem; padding: 1rem 1.5rem; border-radius: var(--radius-lg); color: var(--white); font-weight: 500; z-index: 10001; transform: translateX(100%); transition: transform 0.3s ease;"></div>
+    <div class="notification" id="notification"></div>
 
     <script>
         // Global variables
@@ -762,8 +1124,11 @@
         let products = [];
         let filteredProducts = [];
         let favorites = [];
+        let comments = {};
+        let conversations = {};
+        let currentChatProductId = null;
 
-        // Sample products data
+        // Sample products data with all requested features
         const sampleProducts = [
             {
                 id: 1,
@@ -881,26 +1246,40 @@
             products = [...sampleProducts];
             filteredProducts = [...products];
             
+            // Initialize comments for existing products
+            products.forEach(product => {
+                if (!comments[product.id]) {
+                    comments[product.id] = [
+                        {
+                            id: 1,
+                            author: "Marie Rasoavelona",
+                            content: "Très bon produit, je recommande !",
+                            date: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000)
+                        },
+                        {
+                            id: 2,
+                            author: "Jean Rakoto",
+                            content: "Livraison rapide et produit conforme à la description.",
+                            date: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000)
+                        }
+                    ];
+                }
+            });
+
             renderProducts(products.filter(p => p.featured), document.getElementById('featuredProducts'));
             renderProducts(filteredProducts, document.getElementById('productsGrid'));
             updateFavorites();
         }
 
-        // Product rendering
+        // Product rendering with improved cards and interactions
         function renderProducts(productsToRender, container) {
             if (productsToRender.length === 0) {
-                container.innerHTML = `
-                    <div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--gray);">
-                        <i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                        <h3>Aucun produit trouvé</h3>
-                        <p>Essayez d'autres mots-clés ou catégories</p>
-                    </div>
-                `;
+                container.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; padding: 3rem; color: var(--gray);"><i class="fas fa-search" style="font-size: 3rem; margin-bottom: 1rem;"></i><h3>Aucun produit trouvé</h3><p>Essayez d\'autres mots-clés ou catégories</p></div>';
                 return;
             }
 
             container.innerHTML = productsToRender.map(product => `
-                <div class="product-card" onclick="showProductDetails(${product.id})">
+                <div class="product-card" onclick="openProductModal(${product.id})">
                     <div class="product-gallery">
                         <div class="product-images">
                             ${product.images.map(img => `<img src="${img}" alt="${product.title}">`).join('')}
@@ -926,10 +1305,10 @@
                                 <button class="interaction-btn like-btn" onclick="toggleReaction(${product.id}, 'like'); event.stopPropagation();">
                                     <i class="fas fa-heart"></i> ${product.reactions.like}
                                 </button>
-                                <button class="interaction-btn comment-btn" onclick="showProductDetails(${product.id}); event.stopPropagation();">
-                                    <i class="fas fa-comment"></i> 2
+                                <button class="interaction-btn comment-btn" onclick="openProductModal(${product.id}); event.stopPropagation();">
+                                    <i class="fas fa-comment"></i> ${comments[product.id] ? comments[product.id].length : 0}
                                 </button>
-                                <button class="interaction-btn contact-btn" onclick="contactSeller(${product.id}); event.stopPropagation();">
+                                <button class="interaction-btn contact-btn" onclick="openChat(${product.id}); event.stopPropagation();">
                                     <i class="fas fa-message"></i> Contact
                                 </button>
                             </div>
@@ -961,16 +1340,132 @@
             `).join('');
         }
 
-        // Show product details
-        function showProductDetails(productId) {
+        // FULL SCREEN PRODUCT MODAL
+        function openProductModal(productId) {
             const product = products.find(p => p.id === productId);
             if (!product) return;
 
             product.views++;
-            showNotification(`📱 Ouverture des détails de "${product.title}"`, 'success');
+
+            const modalContent = document.getElementById('productModalContent');
+            modalContent.innerHTML = `
+                <div class="product-modal-gallery">
+                    <img src="${product.images[0]}" alt="${product.title}" class="main-product-image" id="mainImage">
+                </div>
+                
+                <div class="product-modal-info">
+                    <h1 class="product-modal-title">${product.title}</h1>
+                    <div class="product-modal-price">${formatPrice(product.price)} Ar</div>
+                    <p style="font-size: 1rem; line-height: 1.8; color: var(--gray); margin-bottom: 2rem;">${product.description}</p>
+                    
+                    <div class="seller-info">
+                        <div class="seller-header">
+                            <div class="seller-avatar">${product.seller.name.charAt(0)}</div>
+                            <div>
+                                <h3 style="margin-bottom: 0.25rem; color: var(--dark);">${product.seller.name}</h3>
+                                <div class="seller-rating">
+                                    <i class="fas fa-star"></i>
+                                    ${product.seller.rating} (${product.seller.totalSales} ventes)
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-outline" onclick="openChat(${product.id})">
+                            <i class="fas fa-comments"></i>
+                            Contacter le vendeur
+                        </button>
+                    </div>
+
+                    <div style="display: flex; gap: 1rem; margin-bottom: 2rem;">
+                        <button class="btn btn-primary" onclick="buyProduct(${product.id})" style="flex: 1;">
+                            <i class="fas fa-shopping-cart"></i>
+                            ${product.type === 'service' ? 'Réserver maintenant' : 'Acheter maintenant'}
+                        </button>
+                        <button class="btn btn-outline" onclick="toggleFavorite(${product.id})">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                        <button class="btn btn-outline" onclick="openChat(${product.id})">
+                            <i class="fas fa-message"></i>
+                        </button>
+                    </div>
+
+                    <div style="border-top: 1px solid var(--border); padding-top: 2rem; margin-top: 2rem;">
+                        <h3 style="margin-bottom: 1.5rem;">Commentaires (${comments[product.id] ? comments[product.id].length : 0})</h3>
+                        
+                        ${currentUser ? `
+                            <div style="background: var(--light-gray); padding: 1.5rem; border-radius: var(--radius-lg); margin-bottom: 2rem;">
+                                <textarea id="newComment" placeholder="Ajouter un commentaire..." style="width: 100%; padding: 1rem; border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 1rem; min-height: 100px; resize: vertical;"></textarea>
+                                <button class="btn btn-primary" onclick="addComment(${product.id})">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Publier
+                                </button>
+                            </div>
+                        ` : `
+                            <p style="text-align: center; color: var(--gray); padding: 2rem;">
+                                <a href="#" onclick="showAuthModal('login')" style="color: var(--primary);">Connectez-vous</a> pour laisser un commentaire
+                            </p>
+                        `}
+
+                        <div id="commentsList">
+                            ${renderComments(product.id)}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('productModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
-        // Toggle reaction
+        // Render comments
+        function renderComments(productId) {
+            const productComments = comments[productId] || [];
+            return productComments.map(comment => `
+                <div style="background: var(--white); padding: 1.5rem; border-radius: var(--radius-lg); margin-bottom: 1rem; border: 1px solid var(--border);">
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--secondary); display: flex; align-items: center; justify-content: center; color: var(--white); font-weight: 600;">
+                            ${comment.author.charAt(0)}
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="font-weight: 600; color: var(--dark);">${comment.author}</div>
+                            <div style="font-size: 0.875rem; color: var(--gray);">${formatDate(comment.date)}</div>
+                        </div>
+                    </div>
+                    <p>${comment.content}</p>
+                </div>
+            `).join('');
+        }
+
+        // Add comment
+        function addComment(productId) {
+            if (!currentUser) {
+                showNotification('🔒 Veuillez vous connecter pour commenter', 'error');
+                return;
+            }
+
+            const commentInput = document.getElementById('newComment');
+            const content = commentInput.value.trim();
+            
+            if (!content) return;
+
+            if (!comments[productId]) {
+                comments[productId] = [];
+            }
+
+            const newComment = {
+                id: Date.now(),
+                author: currentUser.name,
+                content: content,
+                date: new Date()
+            };
+
+            comments[productId].unshift(newComment);
+            commentInput.value = '';
+
+            document.getElementById('commentsList').innerHTML = renderComments(productId);
+            showNotification('💬 Commentaire ajouté !', 'success');
+        }
+
+        // SINGLE REACTION SYSTEM
         function toggleReaction(productId, reactionType) {
             if (!currentUser) {
                 showNotification('🔒 Veuillez vous connecter pour réagir', 'error');
@@ -999,8 +1494,13 @@
             renderProducts(products.filter(p => p.featured), document.getElementById('featuredProducts'));
         }
 
-        // Contact seller
-        function contactSeller(productId) {
+        function getReactionEmoji(reactionType) {
+            const emojis = { like: '❤️', love: '😍', wow: '😮' };
+            return emojis[reactionType] || '👍';
+        }
+
+        // SELLER COMMUNICATION CHAT
+        function openChat(productId) {
             if (!currentUser) {
                 showNotification('🔒 Veuillez vous connecter pour contacter le vendeur', 'error');
                 showAuthModal('login');
@@ -1010,10 +1510,71 @@
             const product = products.find(p => p.id === productId);
             if (!product) return;
 
-            showNotification(`💬 Ouverture de la conversation avec ${product.seller.name}`, 'success');
+            currentChatProductId = productId;
+            document.querySelector('.chat-title').textContent = `Chat avec ${product.seller.name}`;
+            document.getElementById('chatModal').classList.add('active');
+
+            if (!conversations[productId]) {
+                conversations[productId] = [
+                    {
+                        type: 'received',
+                        content: `Bonjour ! Je suis ${product.seller.name}. Comment puis-je vous aider concernant "${product.title}" ?`,
+                        timestamp: new Date()
+                    }
+                ];
+            }
+
+            displayChatMessages(productId);
         }
 
-        // Buy product
+        function displayChatMessages(productId) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const conversation = conversations[productId] || [];
+            
+            messagesContainer.innerHTML = conversation.map(message => `
+                <div class="chat-message ${message.type}">
+                    ${message.content}
+                </div>
+            `).join('');
+            
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message || !currentChatProductId) return;
+
+            if (!conversations[currentChatProductId]) {
+                conversations[currentChatProductId] = [];
+            }
+
+            conversations[currentChatProductId].push({
+                type: 'sent',
+                content: message,
+                timestamp: new Date()
+            });
+
+            input.value = '';
+            displayChatMessages(currentChatProductId);
+            
+            setTimeout(() => {
+                conversations[currentChatProductId].push({
+                    type: 'received',
+                    content: 'Merci pour votre message ! Je vous réponds dès que possible.',
+                    timestamp: new Date()
+                });
+                displayChatMessages(currentChatProductId);
+            }, 2000);
+        }
+
+        function closeChat() {
+            document.getElementById('chatModal').classList.remove('active');
+            currentChatProductId = null;
+        }
+
+        // BUY PRODUCT (redirects to chat)
         function buyProduct(productId) {
             if (!currentUser) {
                 showNotification('🔒 Veuillez vous connecter pour acheter', 'error');
@@ -1030,10 +1591,15 @@
             }
 
             product.stock--;
-            showNotification(`✅ Achat confirmé ! Vous avez acheté "${product.title}"`, 'success');
+            showNotification(`✅ Commande confirmée ! Contactez le vendeur pour finaliser.`, 'success');
+            
+            setTimeout(() => {
+                closeModal('productModal');
+                openChat(productId);
+            }, 1000);
         }
 
-        // Toggle favorite
+        // FAVORITES SYSTEM
         function toggleFavorite(productId) {
             if (!currentUser) {
                 showNotification('🔒 Veuillez vous connecter pour ajouter aux favoris', 'error');
@@ -1054,13 +1620,12 @@
             renderProducts(products.filter(p => p.featured), document.getElementById('featuredProducts'));
         }
 
-        // Update favorites
         function updateFavorites() {
             const favoriteProducts = products.filter(p => favorites.includes(p.id));
             renderProducts(favoriteProducts, document.getElementById('favoritesGrid'));
         }
 
-        // Search products
+        // MULTI-PRODUCT PLATFORM FILTERS
         function searchProducts() {
             const query = document.getElementById('searchInput').value.toLowerCase().trim();
             
@@ -1077,7 +1642,6 @@
             renderProducts(filteredProducts, document.getElementById('productsGrid'));
         }
 
-        // Filter by category
         function filterByCategory(category) {
             document.querySelectorAll('.category-btn').forEach(btn => {
                 btn.classList.remove('active');
@@ -1093,7 +1657,6 @@
             renderProducts(filteredProducts, document.getElementById('productsGrid'));
         }
 
-        // Sort products
         function sortProducts() {
             const sortBy = document.getElementById('sortSelect').value;
             
@@ -1115,7 +1678,7 @@
             renderProducts(filteredProducts, document.getElementById('productsGrid'));
         }
 
-        // Show section
+        // NAVIGATION
         function showSection(sectionName) {
             document.querySelectorAll('.nav-link').forEach(link => {
                 link.classList.remove('active');
@@ -1134,9 +1697,51 @@
             }
         }
 
-        // Auth functions
+        // AUTH SYSTEM
         function showAuthModal(type) {
-            showNotification('🔒 Fonctionnalité de connexion à venir !', 'warning');
+            document.getElementById('authModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            switchAuthTab(type);
+        }
+
+        function switchAuthTab(type) {
+            document.querySelectorAll('.auth-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.auth-form').forEach(form => {
+                form.classList.remove('active');
+            });
+
+            document.querySelector(`[onclick="switchAuthTab('${type}')"]`).classList.add('active');
+            document.getElementById(type + 'Form').classList.add('active');
+        }
+
+        function login(event) {
+            event.preventDefault();
+            
+            currentUser = {
+                id: 1,
+                name: "John Doe",
+                email: "john@example.com"
+            };
+            
+            updateUserUI();
+            closeModal('authModal');
+            showNotification('🎉 Connexion réussie !', 'success');
+        }
+
+        function register(event) {
+            event.preventDefault();
+            
+            currentUser = {
+                id: 1,
+                name: "Nouvel Utilisateur",
+                email: "user@example.com"
+            };
+            
+            updateUserUI();
+            closeModal('authModal');
+            showNotification('🎉 Inscription réussie !', 'success');
         }
 
         function logout() {
@@ -1164,23 +1769,33 @@
             }
         }
 
-        // Show notification
+        // UTILITY FUNCTIONS
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
         function showNotification(message, type = 'success') {
             const notification = document.getElementById('notification');
             notification.textContent = message;
             notification.className = `notification ${type}`;
-            notification.style.background = type === 'success' ? 'var(--primary)' : 
-                                          type === 'error' ? 'var(--danger)' : 'var(--warning)';
-            notification.style.transform = 'translateX(0)';
+            notification.classList.add('show');
             
             setTimeout(() => {
-                notification.style.transform = 'translateX(100%)';
+                notification.classList.remove('show');
             }, 3000);
         }
 
-        // Utility functions
         function formatPrice(price) {
             return new Intl.NumberFormat('fr-FR').format(price);
+        }
+
+        function formatDate(date) {
+            return new Intl.DateTimeFormat('fr-FR', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            }).format(date);
         }
 
         function getCategoryName(category) {
@@ -1197,21 +1812,24 @@
             return categories[category] || category;
         }
 
-        function getReactionEmoji(reactionType) {
-            const emojis = {
-                like: '❤️',
-                love: '😍',
-                wow: '😮'
-            };
-            return emojis[reactionType] || '👍';
-        }
-
-        // Event listeners
+        // EVENT LISTENERS
         document.addEventListener('DOMContentLoaded', init);
+
+        document.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal(event.target.id);
+            }
+        });
 
         document.getElementById('searchInput').addEventListener('keypress', function(event) {
             if (event.key === 'Enter') {
                 searchProducts();
+            }
+        });
+
+        document.addEventListener('keypress', function(event) {
+            if (event.target.id === 'chatInput' && event.key === 'Enter') {
+                sendMessage();
             }
         });
     </script>
